@@ -43,6 +43,14 @@ The following files fall under the Attribution License (https://creativecommons.
 
 - rpm_boom.wav, from GregorQuendel (https://freesound.org/people/GregorQuendel/)
 
+- boss_theme.wav, from djfroyd (https://freesound.org/people/djfroyd/)
+
+- blood_splash.wav (variations), from sazarret (https://freesound.org/people/sazarret/)
+
+- enemy_spawning.wav, from junggle (https://freesound.org/people/junggle/)
+
+- boss_impacted.wav, from edwardszakal (https://freesound.org/people/edwardszakal/)
+
 
 The following files fall under the Creative Commons 0 License (https://creativecommons.org/publicdomain/zero/1.0/legalcode):
 
@@ -91,3 +99,27 @@ The following files fall under the Creative Commons 0 License (https://creativec
 - weapon_bonk.wav, from Capashen (https://freesound.org/people/Capashen/sounds/118933/)
 
 - weapon_slices.wav, from woula (https://freesound.org/people/wuola/)
+
+- enemy_death.wav, from magnuswalker (https://freesound.org/people/magnuswaker/)
+
+- enemy_dying.wav, from Smice_6 (https://freesound.org/people/Smice_6/)
+
+- enemy_spawn.wav, from MiSchy (https://freesound.org/people/MiSchy/)
+
+- enemy_telespawn.wav, from Glitchedtones (https://freesound.org/people/Glitchedtones/)
+
+- boss_hit.wav, from unfa (https://freesound.org/people/unfa/)
+
+- boss_death.wav, from deleted_user_1941307 (https://freesound.org/people/deleted_user_1941307/)
+
+- boss_hurt.wav, from deleted_user_1941307 (https://freesound.org/people/deleted_user_1941307/)
+
+- battle_theme.wav, from Antonin Chachkine (https://www.youtube.com/watch?v=2C6EBFJTfMc)
+
+- enemy_teleport.wav, from BigDino1995 (https://freesound.org/people/BigDino1995/)
+
+- enemy_chocapic.wav, from egomassive (https://freesound.org/people/egomassive/)
+
+- boss_ouchy.wav, from bdemon27 (https://freesound.org/people/bdemon27/)
+
+
