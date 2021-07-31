@@ -96,7 +96,7 @@ public class CameraFollow : MonoBehaviour
         if (scaleActive == false)
             return;
 
-        float newScale01 = Mathf.Clamp01(myPlayer.speed / speedToMaxScale);
+        float newScale01 = Mathf.Clamp01(myPlayer.baseSpeed / speedToMaxScale);
         currentCam.orthographicSize = Mathf.Lerp(minCamScale, maxCamScale, newScale01);
     }
 
