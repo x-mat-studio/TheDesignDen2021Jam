@@ -22,7 +22,10 @@ public class SwordController : MonoBehaviour
     private QUADRANT previousQuadrant = QUADRANT.NONE;
     private QUADRANT currentQuadrant = QUADRANT.NONE;
 
-    public float turnSpeed = 0.0f;
+    float maxRPM = 0.0f; //maxRPM
+    public float rpm = 0.0f;
+    [Range(0.01f,0.99f)]
+    public float rpmLerpSpeed = 0.5f;//between 0.01 and 1
 
     // Update is called once per frame
     void Update()
@@ -30,7 +33,16 @@ public class SwordController : MonoBehaviour
         CalculateCurrentQuadrant();
         UpdateSpinState();
 
-        sword.transform.eulerAngles = new Vector3(sword.transform.eulerAngles.x, sword.transform.eulerAngles.y, sword.transform.eulerAngles.z - loops * 0.25f);
+        if(rpm < maxRPM-0.1f)
+        {
+            rpm = Mathf.Lerp(rpm, maxRPM, rpmLerpSpeed);
+        }
+        else
+        {
+            rpm = maxRPM;
+        }
+
+        sword.transform.eulerAngles = new Vector3(sword.transform.eulerAngles.x, sword.transform.eulerAngles.y, sword.transform.eulerAngles.z - RPMtoDegreesPerFrame());
     }
 
     private void CalculateCurrentQuadrant()
@@ -103,12 +115,24 @@ public class SwordController : MonoBehaviour
         {
             loops++;
             quadrantChanges = 0;
+            RecalculateRPM();
         }
-
         else if (quadrantChanges == -4)
         {
             loops--;
             quadrantChanges = 0;
+            RecalculateRPM();
+
         }
+    }
+    void RecalculateRPM()
+    {
+        maxRPM = loops * 2; //Change this as designers want
+    }
+
+    float RPMtoDegreesPerFrame()
+    {
+        Debug.Log("CURRENT RPM: ==" + rpm.ToString() + "==");
+        return rpm*6*Time.deltaTime;
     }
 }
