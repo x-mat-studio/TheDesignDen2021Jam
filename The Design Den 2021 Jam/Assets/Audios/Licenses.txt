@@ -4,6 +4,45 @@ The following files fall under the Attribution License (https://creativecommons.
 
 - bumper_metallic.wav, from Rogan McDougald (https://freesound.org/people/RoganMcDougald/)
 
--bumper_impact.wav, from original_sound (https://freesound.org/people/original_sound/)
+- bumper_impact.wav, from original_sound (https://freesound.org/people/original_sound/)
+
+- weapon_boom.wav (variations), from JoelAudio (https://freesound.org/people/JoelAudio/)
+
+- weapon_attack.wav, from Saviraz (https://freesound.org/people/Saviraz/)
+
+- positive_bounce.wav, from bubaproducer (https://freesound.org/people/bubaproducer/)
+
+- death_effect.wav, from chipfork71 (https://freesound.org/people/chipfork71/)
+
+- circle_success.wav, from fredzed (https://freesound.org/people/fredzed/)
+
+- weapon_fry.wav, from jameswrowles (https://freesound.org/people/jameswrowles/)
+
+- weapon_zoup.wav, from themfish (https://freesound.org/people/themfish/)
+
+- death_on.wav, from InspectorJ (https://freesound.org/people/InspectorJ/)
+
+- rpm_timer.wav, from luckylittleraven (https://freesound.org/people/luckylittleraven/)
+
+The following files fall under the Creative Commons 0 License (https://creativecommons.org/publicdomain/zero/1.0/legalcode):
+
+- weapon_miss.wav, from Saviraz (https://freesound.org/people/Saviraz/)
+
+- positive_bumper.wav, from SamsterBirdies (https://freesound.org/people/SamsterBirdies/)
+
+- weapon_cut.wav, from DayCraftMC (https://freesound.org/people/DayCraftMC/)
+
+- circle_completed.wav, from kafokafo (https://freesound.org/people/kafokafo/)
+
+- weapon_woosh.wav, from .Andre_Onate (https://freesound.org/people/.Andre_Onate/)
+
+- death_sound.wav, from bolkmar (https://freesound.org/people/bolkmar/)
+
+- circle_power.wav, from mazk1985 (https://freesound.org/people/mazk1985/)
+
+- circle_classic.wav, from thehorriblejoke (https://freesound.org/people/thehorriblejoke/)
+
+- circle_effect.wav, from Tissman (https://freesound.org/people/Tissman/)
+
 
 
