@@ -6,13 +6,45 @@ public class GridCreation : MonoBehaviour
 {
     public GameObject gridPrefab = null;
 
-    void OnTriggerEnter2D(Collider2D col)
-    {
+    public static bool updatingGrid = false;
+    public bool needUpdate = false;
+    public bool wasUpdated = false;
 
-        if (col.tag != "Grid")
+    private void Update()
+    {
+        if (wasUpdated == true)
+        {
+            wasUpdated = false;
+            needUpdate = false;
+            updatingGrid = false;
+        }
+
+        else if (needUpdate == true && updatingGrid == false)
+        {
             GenerateGrids();
+
+            needUpdate = false;
+            updatingGrid = true;
+            wasUpdated = true;
+        }
     }
 
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag != "Grid")
+        {
+            if (updatingGrid == false)
+            {
+                GenerateGrids();
+
+                updatingGrid = true;
+                wasUpdated = true;
+            }
+
+            else
+                needUpdate = true;
+        }
+    }
 
     private void GenerateGrids()
     {
@@ -22,6 +54,12 @@ public class GridCreation : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 10), nord);
         
         if (hit.collider == null)
+        {
+            GameObject grid = Instantiate(gridPrefab);
+            grid.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 10, 0.0f);
+        }
+
+        else if (hit.distance < 9.5f)
         {
             GameObject grid = Instantiate(gridPrefab);
             grid.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 10, 0.0f);
@@ -37,11 +75,23 @@ public class GridCreation : MonoBehaviour
             grid.transform.position = new Vector3(gameObject.transform.position.x + 10, gameObject.transform.position.y + 10, 0.0f);
         }
 
+        else if (hit.distance < 9.5f)
+        {
+            GameObject grid = Instantiate(gridPrefab);
+            grid.transform.position = new Vector3(gameObject.transform.position.x + 10, gameObject.transform.position.y + 10, 0.0f);
+        }
+
         Vector2 nordWest = new Vector2(-1.0f, 1.0f);
 
         hit = Physics2D.Raycast(new Vector2(gameObject.transform.position.x - 10, gameObject.transform.position.y + 10), nordWest);
 
         if (hit.collider == null)
+        {
+            GameObject grid = Instantiate(gridPrefab);
+            grid.transform.position = new Vector3(gameObject.transform.position.x - 10, gameObject.transform.position.y + 10, 0.0f);
+        }
+
+        else if (hit.distance < 9.5f)
         {
             GameObject grid = Instantiate(gridPrefab);
             grid.transform.position = new Vector3(gameObject.transform.position.x - 10, gameObject.transform.position.y + 10, 0.0f);
@@ -58,11 +108,23 @@ public class GridCreation : MonoBehaviour
             grid.transform.position = new Vector3(gameObject.transform.position.x + 10, gameObject.transform.position.y, 0.0f);
         }
 
+        else if (hit.distance < 9.5f)
+        {
+            GameObject grid = Instantiate(gridPrefab);
+            grid.transform.position = new Vector3(gameObject.transform.position.x + 10, gameObject.transform.position.y, 0.0f);
+        }
+
         Vector2 west = new Vector2(-1.0f, 0.0f);
 
         hit = Physics2D.Raycast(new Vector2(gameObject.transform.position.x - 10, gameObject.transform.position.y), nordWest);
 
         if (hit.collider == null)
+        {
+            GameObject grid = Instantiate(gridPrefab);
+            grid.transform.position = new Vector3(gameObject.transform.position.x - 10, gameObject.transform.position.y, 0.0f);
+        }
+
+        else if (hit.distance < 9.5f)
         {
             GameObject grid = Instantiate(gridPrefab);
             grid.transform.position = new Vector3(gameObject.transform.position.x - 10, gameObject.transform.position.y, 0.0f);
@@ -80,6 +142,12 @@ public class GridCreation : MonoBehaviour
             grid.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 10, 0.0f);
         }
 
+        else if (hit.distance < 9.5f)
+        {
+            GameObject grid = Instantiate(gridPrefab);
+            grid.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 10, 0.0f);
+        }
+
         Vector2 sudEast = new Vector2(1.0f, -1.0f);
 
         hit = Physics2D.Raycast(new Vector2(gameObject.transform.position.x + 10, gameObject.transform.position.y - 10), sudEast);
@@ -90,11 +158,22 @@ public class GridCreation : MonoBehaviour
             grid.transform.position = new Vector3(gameObject.transform.position.x + 10, gameObject.transform.position.y - 10, 0.0f);
         }
 
+        else if (hit.distance < 9.5f)
+        {
+            GameObject grid = Instantiate(gridPrefab);
+            grid.transform.position = new Vector3(gameObject.transform.position.x + 10, gameObject.transform.position.y - 10, 0.0f);
+        }
+
         Vector2 sudWest = new Vector2(-1.0f, -1.0f);
 
         hit = Physics2D.Raycast(new Vector2(gameObject.transform.position.x - 10, gameObject.transform.position.y - 10), sudWest);
 
         if (hit.collider == null)
+        {
+            GameObject grid = Instantiate(gridPrefab);
+            grid.transform.position = new Vector3(gameObject.transform.position.x - 10, gameObject.transform.position.y - 10, 0.0f);
+        }
+        else if (hit.distance < 9.5f)
         {
             GameObject grid = Instantiate(gridPrefab);
             grid.transform.position = new Vector3(gameObject.transform.position.x - 10, gameObject.transform.position.y - 10, 0.0f);
