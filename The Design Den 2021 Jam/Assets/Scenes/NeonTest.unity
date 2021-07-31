@@ -9862,7 +9862,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream
 --- !u!1001 &1065691684
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9991,13 +9990,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e78449da2c257648ae502c8276a3ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-=======
 --- !u!4 &1615253733 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5733321382389552301, guid: 65a036ab7b1bb744fa6fa43de7d8c2f1, type: 3}
   m_PrefabInstance: {fileID: 1132648002678419759}
   m_PrefabAsset: {fileID: 0}
->>>>>>> Stashed changes
 --- !u!1 &1648086146
 GameObject:
   m_ObjectHideFlags: 0
