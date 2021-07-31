@@ -22,7 +22,15 @@ public class SwordController : MonoBehaviour
     private QUADRANT previousQuadrant = QUADRANT.NONE;
     private QUADRANT currentQuadrant = QUADRANT.NONE;
 
-    public float turnSpeed = 0.0f;
+    public float timeBeforeStopping = 1.0f;
+    public float timeReduceSpeed = 0.5f;
+    private float beforeStopTimer = 0.0f;
+
+
+    float maxRPM = 0.0f; //maxRPM
+    public float rpm = 0.0f;
+    [Range(0.01f,0.99f)]
+    public float rpmLerpSpeed = 0.5f;//between 0.01 and 1
 
     // Update is called once per frame
     void Update()
@@ -30,7 +38,30 @@ public class SwordController : MonoBehaviour
         CalculateCurrentQuadrant();
         UpdateSpinState();
 
-        sword.transform.eulerAngles = new Vector3(sword.transform.eulerAngles.x, sword.transform.eulerAngles.y, sword.transform.eulerAngles.z - loops * 0.25f);
+        if (beforeStopTimer > 0.0f)
+            beforeStopTimer -= Time.deltaTime;
+
+        else if (beforeStopTimer <= 0.0f)
+        {
+            if (loops > 0)
+                loops--;
+            else if (loops < 0)
+                loops++;
+
+            RecalculateRPM();
+            beforeStopTimer = timeReduceSpeed;
+        }
+
+        if (rpm < maxRPM-0.1f)
+        {
+            rpm = Mathf.Lerp(rpm, maxRPM, rpmLerpSpeed);
+        }
+        else
+        {
+            rpm = maxRPM;
+        }
+
+        sword.transform.eulerAngles = new Vector3(sword.transform.eulerAngles.x, sword.transform.eulerAngles.y, sword.transform.eulerAngles.z - RPMtoDegreesPerFrame());
     }
 
     private void CalculateCurrentQuadrant()
@@ -103,12 +134,27 @@ public class SwordController : MonoBehaviour
         {
             loops++;
             quadrantChanges = 0;
-        }
+            RecalculateRPM();
 
+            beforeStopTimer = timeBeforeStopping;
+        }
         else if (quadrantChanges == -4)
         {
             loops--;
             quadrantChanges = 0;
+            RecalculateRPM();
+
+            beforeStopTimer = timeBeforeStopping;
         }
+    }
+    void RecalculateRPM()
+    {
+        maxRPM = loops * 2; //Change this as designers want
+    }
+
+    float RPMtoDegreesPerFrame()
+    {
+        Debug.Log("CURRENT RPM: ==" + rpm.ToString() + "==");
+        return rpm*6*Time.deltaTime;
     }
 }

@@ -8,7 +8,7 @@ TagManager:
   - NE
   - SW
   - SE
-  - Boss
+  - Grid
   layers:
   - Default
   - TransparentFX
