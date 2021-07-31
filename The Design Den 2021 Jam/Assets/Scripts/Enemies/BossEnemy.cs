@@ -26,8 +26,10 @@ public class BossEnemy : BaseEnemy
 
     private void PushPlayer()
     {
+        Debug.Log("I bumped the player");
         Vector2 myPos = new Vector2(transform.position.x, transform.position.y);
-        myPlayer.AddPush(myBumpForce, myPos); 
+        myPlayer.AddPush(myBumpForce, myPos);
+       
     }    
 }
 

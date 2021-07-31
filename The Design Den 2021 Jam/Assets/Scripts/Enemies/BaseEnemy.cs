@@ -83,6 +83,8 @@ public class BaseEnemy : MonoBehaviour
         }
     }
 
+    
+
     void TakeDamage()
     {
         myLife -= 1;
