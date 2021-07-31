@@ -1,0 +1,9 @@
+The following files fall under the Attribution License (https://creativecommons.org/licenses/by/3.0/legalcode):
+
+- pinball_machine.wav (variations), from soulbaby71 (https://freesound.org/people/soulbaby71/)
+
+- bumper_metallic.wav, from Rogan McDougald (https://freesound.org/people/RoganMcDougald/)
+
+-bumper_impact.wav, from original_sound (https://freesound.org/people/original_sound/)
+
+
