@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - NW
+  - NE
+  - SW
+  - SE
   layers:
   - Default
   - TransparentFX
