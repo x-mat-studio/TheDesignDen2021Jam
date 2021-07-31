@@ -23,7 +23,7 @@ public class BloodSplat : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) == true)
         {
-            CreateSplat(new Vector2(Random.Range(-6.0f, 6.0f), Random.Range(-6.0f, 6.0f)), 0.0f, new Vector3(1.0f, 0.0f, 0.3f));
+            CreateSplat(new Vector2(Random.Range(-6.0f, 6.0f), Random.Range(-6.0f, 6.0f)), Random.Range(0.0f, 360.0f), new Vector3(1.0f, 0.0f, 0.3f));
         }
     }
 
