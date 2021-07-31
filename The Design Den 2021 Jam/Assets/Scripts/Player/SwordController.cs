@@ -22,6 +22,11 @@ public class SwordController : MonoBehaviour
     private QUADRANT previousQuadrant = QUADRANT.NONE;
     private QUADRANT currentQuadrant = QUADRANT.NONE;
 
+    public float timeBeforeStopping = 1.0f;
+    public float timeReduceSpeed = 0.5f;
+    private float beforeStopTimer = 0.0f;
+
+
     float maxRPM = 0.0f; //maxRPM
     public float rpm = 0.0f;
     [Range(0.01f,0.99f)]
@@ -33,7 +38,21 @@ public class SwordController : MonoBehaviour
         CalculateCurrentQuadrant();
         UpdateSpinState();
 
-        if(rpm < maxRPM-0.1f)
+        if (beforeStopTimer > 0.0f)
+            beforeStopTimer -= Time.deltaTime;
+
+        else if (beforeStopTimer <= 0.0f)
+        {
+            if (loops > 0)
+                loops--;
+            else if (loops < 0)
+                loops++;
+
+            RecalculateRPM();
+            beforeStopTimer = timeReduceSpeed;
+        }
+
+        if (rpm < maxRPM-0.1f)
         {
             rpm = Mathf.Lerp(rpm, maxRPM, rpmLerpSpeed);
         }
@@ -116,6 +135,8 @@ public class SwordController : MonoBehaviour
             loops++;
             quadrantChanges = 0;
             RecalculateRPM();
+
+            beforeStopTimer = timeBeforeStopping;
         }
         else if (quadrantChanges == -4)
         {
@@ -123,6 +144,7 @@ public class SwordController : MonoBehaviour
             quadrantChanges = 0;
             RecalculateRPM();
 
+            beforeStopTimer = timeBeforeStopping;
         }
     }
     void RecalculateRPM()
