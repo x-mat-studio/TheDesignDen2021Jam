@@ -221,6 +221,14 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 106787868}
+    - target: {fileID: 154235124816321600, guid: 06210833ab08f8542a122ce26ac7415a, type: 3}
+      propertyPath: smoothSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 154235124816321600, guid: 06210833ab08f8542a122ce26ac7415a, type: 3}
+      propertyPath: deadZoneDistance
+      value: 1.25
+      objectReference: {fileID: 0}
     - target: {fileID: 154235124816321602, guid: 06210833ab08f8542a122ce26ac7415a, type: 3}
       propertyPath: m_Name
       value: Main Camera

@@ -6,15 +6,13 @@ public class CameraFollow : MonoBehaviour
 {
     Camera currentCam;
     public Transform target;
-    
-    public bool followActive = true;
+   
+    public float deadZoneDistance = 1.0f;
 
     [Range(0.0f,1.0f)]
     public float smoothSpeed = 0.125f; //between 0 & 1
-    public float smoothSizeSpeed = 0.125f; //the size of the camera will be determined by the z component of the target scale
-    public float cameraWantedSize = 5;
-    public Vector2 offset;
 
+    public bool followActive = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,15 +32,7 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(followActive==false)
-            return;
-        
-        Vector2 desiredPos = new Vector2(target.position.x,target.position.y) + offset;
-        Vector2 smoothedPos = Vector2.Lerp(transform.position, desiredPos, smoothSpeed);
-       
-        float smoothedSize = fLerp(currentCam.orthographicSize, cameraWantedSize, smoothSizeSpeed*Time.deltaTime);
-        transform.position = new Vector3(smoothedPos.x,smoothedPos.y,transform.position.z);
-        currentCam.orthographicSize = smoothedSize;
+        TryMove();
     }
 
     public void NewTarget(Transform t)
@@ -55,11 +45,32 @@ public class CameraFollow : MonoBehaviour
         }
     }
    
-    private float fLerp(float origin, float destination, float t)
+    private float fLerp(float origin, float destination, float t) //TODO NOT USED, DELETE?
     {
         float f;
         f = ((1 - t) * origin) + (t * destination);
 
         return f;
+    }
+
+    void TryMove()
+    {
+        if (IsInDeadZone()||followActive==false)
+            return;
+
+        Vector2 desiredPos = new Vector2(target.position.x, target.position.y);
+        Vector2 currentPos = new Vector2(transform.position.x, transform.position.y);
+
+        Vector2 camMovementDir = (desiredPos - currentPos).normalized;
+        Vector2 desiredDeadzonePos = desiredPos - camMovementDir * deadZoneDistance;
+        Vector2 smoothedPos = Vector2.Lerp(currentPos, desiredDeadzonePos, smoothSpeed*Time.deltaTime*10);
+
+        transform.position = new Vector3(smoothedPos.x, smoothedPos.y, transform.position.z);
+
+    }
+
+    bool IsInDeadZone()
+    {
+        return (new Vector2(transform.position.x - target.position.x, transform.position.y - target.position.y).magnitude < deadZoneDistance);//TODO use sqrMagnitude if we need to optimize
     }
 }
