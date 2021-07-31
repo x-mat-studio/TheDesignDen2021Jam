@@ -290,6 +290,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterPlaceholder
       objectReference: {fileID: 0}
+    - target: {fileID: 798444552604204291, guid: d5f5b71633d61cf4085f626f13161d3e, type: 3}
+      propertyPath: drag
+      value: 0.005
+      objectReference: {fileID: 0}
     - target: {fileID: 798444552604204293, guid: d5f5b71633d61cf4085f626f13161d3e, type: 3}
       propertyPath: m_RootOrder
       value: 2
