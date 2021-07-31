@@ -13,21 +13,21 @@ public class BaseEnemy : MonoBehaviour
     public SpriteRenderer myOutlineSprite = null;
     public PlayerController myPlayer = null;
     bool thereIsPlayer = true;
-   
-
-    public enum EnemyType 
+    public enum EnemyType
     {
         ENEMY_SLOW,
         ENEMY_NORMAL,
         ENEMY_FAST,
         ENEMY_BOSS,
+        NONE
     }
 
+    public EnemyType myType { get; protected set; } = EnemyType.NONE;
 
     // Start is called before the first frame update
     void Start()
     {
-         if (myPlayer == null)
+        if (myPlayer == null)
         {
             thereIsPlayer = false;
             Debug.LogError("NO PLAYER ASSIGNED TO THIS ENEMY");
@@ -37,22 +37,22 @@ public class BaseEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      Move();  
+        Move();
     }
 
     void SetSpriteColor(Color inside, Color outline)
     {
-        this.myColor = inside;
-        this.myOutlineColor = outline;
+        myColor = inside;
+        myOutlineColor = outline;
 
         if (mySprite != null)
         {
-        mySprite.color = this.myColor;
+            mySprite.color = myColor;
         }
 
         if (myOutlineSprite != null)
         {
-        myOutlineSprite.color = this.outline;
+            myOutlineSprite.color = outline;
         }
     }
 
@@ -61,34 +61,34 @@ public class BaseEnemy : MonoBehaviour
         //Bloodsplat
         //Sound
         Debug.Log("I got killed");
-        Destroy(this); //keep this as last line of the code   
+        Destroy(gameObject); //keep this as last line of the code   
     }
 
     void Move()
     {
         if (!thereIsPlayer)
-        {return;}
-     
-        this.myDirection = Vector2(this.position, myPlayer.transform.position);
-        this.myDirection.Normalize();
-        this.myDirection *= this.mySpeed;
-        this.position += this.myDirection;
+            return;
+
+        myDirection = new Vector2(transform.position.x- myPlayer.transform.position.x, transform.position.y - myPlayer.transform.position.y);
+        myDirection.Normalize();
+        myDirection *= mySpeed;
+        transform.position += new Vector3(myDirection.x,myDirection.y,0.0f);
     }
-    
-   virtual void OnCollisionEnter2D(Collision2D col)
+
+    protected virtual void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject == myPlayer.GameObject)
+        if (col.gameObject == myPlayer.gameObject)
         {
-           TakeDamage();
+            TakeDamage();
         }
     }
 
     void TakeDamage()
     {
-        this.myLife -= 1;
-        if(this.myLife == 0)
+        myLife -= 1;
+        if (myLife == 0)
         {
-           Die();
+            Die();
         }
     }
 }
