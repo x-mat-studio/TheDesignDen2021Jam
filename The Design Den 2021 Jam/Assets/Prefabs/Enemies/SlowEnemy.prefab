@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7854461315358622382}
   - component: {fileID: 7854461315358622383}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SpriteHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,9 +93,9 @@ GameObject:
   - component: {fileID: 7854461315652930431}
   - component: {fileID: 7854461315652930424}
   - component: {fileID: 7854461315652930425}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SlowEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,7 +154,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 2747690628134850419, guid: 16037dbd798344f57a526d53d48f5ead, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

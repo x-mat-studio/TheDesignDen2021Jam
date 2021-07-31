@@ -9,6 +9,8 @@ TagManager:
   - SW
   - SE
   - Grid
+  - Boss
+  - Enemy
   layers:
   - Default
   - TransparentFX

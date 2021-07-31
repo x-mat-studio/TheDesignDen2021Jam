@@ -4938,9 +4938,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: df98aff02a6fdf14c9b6d55c801bcd87, type: 3}
-  m_Color: {r: 0.8490566, g: 0.23629406, b: 0.6833095, a: 1}
+  m_SortingOrder: 10
+  m_Sprite: {fileID: 21300000, guid: 4fe709cd2118e6b4dbce5d1162ce33d8, type: 3}
+  m_Color: {r: 0.8396226, g: 0, b: 0.0928002, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4970,6 +4970,14 @@ MonoBehaviour:
   myOutlineSprite: {fileID: 6083719708296838407}
   myPlayer: {fileID: 0}
   myBumpForce: 2000
+  EnemySlow: {fileID: 7854461315652930426, guid: bdc5fbc222012f244af352f1a95772b6, type: 3}
+  EnemyNormal: {fileID: 2217095555907616817, guid: de17376349d13264bbec6e24b6a82a3c, type: 3}
+  EnemyFast: {fileID: 2429443042700596742, guid: bbff5a9747c4de04a89becc03f06d3c1, type: 3}
+  spawnTimer: 3
+  rate100SpawnNormal: 70
+  rate100SpawnSlow: 100
+  rate100SpawnFast: 30
+  radOfSpawn: 7
 --- !u!61 &7505904333644202717
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5088,8 +5096,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 12b8e3d1009fa704db63d601cddca5aa, type: 3}
-  m_Color: {r: 0.745283, g: 0.05273228, b: 0.06658031, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 5624464bd6a0a41458d7628d2afda2d4, type: 3}
+  m_Color: {r: 0.7264151, g: 0.16104485, b: 0.1679396, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
