@@ -13,6 +13,16 @@ public class CameraFollow : MonoBehaviour
     public float smoothSpeed = 0.125f; //between 0 & 1
 
     public bool followActive = true;
+    public bool scaleActive = true;
+
+    public float speedToMaxScale = 2.0f; //speed needed for the camera to go to its max scale
+    public float minCamScale;//scale of the camera when it is stationary
+    public float maxCamScale;//scale of the camera when it travels 
+
+
+    PlayerController myPlayer = null;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,18 +31,30 @@ public class CameraFollow : MonoBehaviour
             followActive = false;
             Debug.LogError("NO TARGET ASSIGNED FOR THE CAMERA TO FOLLOW");
         }
+        else
+        {
+            myPlayer = target.GetComponent<PlayerController>();
+            if (myPlayer == null)
+            {
+                scaleActive = false;
+                Debug.LogError("THE TARGET IS NOT A PLAYER");
+            }
+        }
         currentCam = gameObject.GetComponent<Camera>();
         if (currentCam == null)
         {
             followActive = false;
             Debug.LogError("CAMERA FOLLOW SCRIPT NOT ASSIGNED TO A CAMERA");
         }
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
         TryMove();
+        TryScale();
     }
 
     public void NewTarget(Transform t)
@@ -58,16 +80,26 @@ public class CameraFollow : MonoBehaviour
         if (IsInDeadZone()||followActive==false)
             return;
 
+        //Move
+
         Vector2 desiredPos = new Vector2(target.position.x, target.position.y);
         Vector2 currentPos = new Vector2(transform.position.x, transform.position.y);
 
         Vector2 camMovementDir = (desiredPos - currentPos).normalized;
         Vector2 desiredDeadzonePos = desiredPos - camMovementDir * deadZoneDistance;
         Vector2 smoothedPos = Vector2.Lerp(currentPos, desiredDeadzonePos, smoothSpeed*Time.deltaTime*10);
-
         transform.position = new Vector3(smoothedPos.x, smoothedPos.y, transform.position.z);
-
     }
+
+    void TryScale()
+    {
+        if (scaleActive == false)
+            return;
+
+        float newScale01 = Mathf.Clamp01(myPlayer.speed / speedToMaxScale);
+        currentCam.orthographicSize = Mathf.Lerp(minCamScale, maxCamScale, newScale01);
+    }
+
 
     bool IsInDeadZone()
     {

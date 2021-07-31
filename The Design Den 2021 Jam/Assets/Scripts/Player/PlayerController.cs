@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         HandleDirectionInputs();
-        gameObject.transform.position = gameObject.transform.position + new Vector3(currentDir.x, currentDir.y, 0) * speed * Time.deltaTime;
     }
 
 
@@ -35,15 +34,22 @@ public class PlayerController : MonoBehaviour
         Vector2 newDir = Vector2.zero; //direction at which the player wants to move
         newDir.x = Input.GetAxisRaw("Horizontal");
         newDir.y = Input.GetAxisRaw("Vertical");
-
         newDir.Normalize();
+
         if (newDir != Vector2.zero)
+        {
             currentDir = Vector2.Lerp(currentDir, newDir, (1.0f - drift) * Time.deltaTime);
+        }
+
 
         if (currentDir.magnitude > 1.0f)
         {
             currentDir.Normalize();
         }
-        currentDir *= (Time.deltaTime - drag*Time.deltaTime)/Time.deltaTime; //TODO Fix
+
+
+        currentDir -= currentDir * drag*Time.deltaTime;
+        gameObject.transform.position = gameObject.transform.position + new Vector3(currentDir.x, currentDir.y, 0) * speed * Time.deltaTime;
+
     }
 }

@@ -1,0 +1,93 @@
+LICENSES OF ALL USED AUDIO ASSETS:
+
+The following files fall under the Attribution-NonCommercial License (https://creativecommons.org/licenses/by-nc/3.0/legalcode):
+
+- death_wave.wav, from harpoyume (https://freesound.org/people/harpoyume/)
+
+- bumper_wee.wav, from Timbre (https://freesound.org/people/Timbre/)
+
+- death_wee.wav, from Timbre (https://freesound.org/people/Timbre/)
+
+
+The following files fall under the Attribution License (https://creativecommons.org/licenses/by/3.0/legalcode):
+
+- pinball_machine.wav (variations), from soulbaby71 (https://freesound.org/people/soulbaby71/)
+
+- bumper_metallic.wav, from Rogan McDougald (https://freesound.org/people/RoganMcDougald/)
+
+- bumper_impact.wav, from original_sound (https://freesound.org/people/original_sound/)
+
+- weapon_boom.wav (variations), from JoelAudio (https://freesound.org/people/JoelAudio/)
+
+- kill_timer.wav, from Saviraz (https://freesound.org/people/Saviraz/)
+
+- positive_bounce.wav, from bubaproducer (https://freesound.org/people/bubaproducer/)
+
+- death_effect.wav, from chipfork71 (https://freesound.org/people/chipfork71/)
+
+- circle_success.wav, from fredzed (https://freesound.org/people/fredzed/)
+
+- weapon_fry.wav, from jameswrowles (https://freesound.org/people/jameswrowles/)
+
+- weapon_zoup.wav, from themfish (https://freesound.org/people/themfish/)
+
+- death_on.wav, from InspectorJ (https://freesound.org/people/InspectorJ/)
+
+- rpm_timer.wav, from luckylittleraven (https://freesound.org/people/luckylittleraven/)
+
+- weapon_laser.wav, from themfish (https://freesound.org/people/themfish/)
+
+- weapon_drum.wav, from YellowTree (https://freesound.org/people/YellowTree/)
+
+- blood_boilsplat.wav, from JustInvoke (https://freesound.org/people/JustInvoke/)
+
+- rpm_boom.wav, from GregorQuendel (https://freesound.org/people/GregorQuendel/)
+
+
+The following files fall under the Creative Commons 0 License (https://creativecommons.org/publicdomain/zero/1.0/legalcode):
+
+- weapon_miss.wav, from Saviraz (https://freesound.org/people/Saviraz/)
+
+- positive_bumper.wav, from SamsterBirdies (https://freesound.org/people/SamsterBirdies/)
+
+- weapon_cut.wav, from DayCraftMC (https://freesound.org/people/DayCraftMC/)
+
+- circle_completed.wav, from kafokafo (https://freesound.org/people/kafokafo/)
+
+- weapon_woosh.wav, from .Andre_Onate (https://freesound.org/people/.Andre_Onate/)
+
+- death_sound.wav, from bolkmar (https://freesound.org/people/bolkmar/)
+
+- circle_power.wav, from mazk1985 (https://freesound.org/people/mazk1985/)
+
+- circle_classic.wav, from thehorriblejoke (https://freesound.org/people/thehorriblejoke/)
+
+- circle_effect.wav, from Tissman (https://freesound.org/people/Tissman/)
+
+- bumper_high.wav, from evanthemann (https://freesound.org/people/evanthemann/)
+
+- death_down.wav, from evanthemann (https://freesound.org/people/evanthemann/)
+
+- death_offing.wav, from alex8valdes (https://freesound.org/people/alex8valdes/)
+
+- kill_wack.wav, from BaDoink (https://freesound.org/people/BaDoink/)
+
+- circle_guitar.wav, from Luizguilherme_a (https://freesound.org/people/Luizguilherme_a/)
+
+- bumper_out.wav, from BurghRecords (https://freesound.org/people/BurghRecords/)
+
+- bumper_sonicboom.wav, from dpren (https://freesound.org/people/dpren/)
+
+- bumper_spring.wav, from denalwa (https://freesound.org/people/denalwa/)
+
+- bumper_eco.wav, from LDNsoundproduction (https://freesound.org/people/LDNsoundproduction/)
+
+- blood_bodysplat.wav, from magnuswaker (https://freesound.org/people/magnuswaker/)
+
+- blood_fastsplat.wav, from mrickey13 (https://freesound.org/people/mrickey13/)
+
+- weapon_fuing.wav, from ZvinbergsA (https://freesound.org/people/ZvinbergsA/)
+
+- weapon_bonk.wav, from Capashen (https://freesound.org/people/Capashen/sounds/118933/)
+
+- weapon_slices.wav, from woula (https://freesound.org/people/wuola/)
