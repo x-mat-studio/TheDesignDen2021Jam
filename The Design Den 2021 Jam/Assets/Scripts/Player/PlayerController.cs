@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 
 
     [Range(0.01f, 50.0f)]
-    public float speed = 10.0f;
+    public float baseSpeed = 10.0f;
 
     [Range(0.0f, 1.0f)] //1 drift, cannot change direction - 0 drift changes direction right away
     public float drift = 0.5f; //percentatge of slerp between current dir and new input dir
@@ -16,12 +16,14 @@ public class PlayerController : MonoBehaviour
     Vector2 vel = Vector2.zero;
     Vector2 pos = Vector2.zero;
 
-
+    public float rpmAddValue = 0.125f;
+    SwordController mySword = null;
 
     // Start is called before the first frame update
     void Start()
     {
         pos = new Vector2(transform.position.x, transform.position.y);
+        mySword = gameObject.GetComponent<SwordController>();
     }
 
     // Update is called once per frame
@@ -40,7 +42,8 @@ public class PlayerController : MonoBehaviour
 
         if (newDir != Vector2.zero)
         {
-            vel += newDir * speed * Time.deltaTime*(1.0f-drift);
+            float newSpeed = baseSpeed + mySword.turnSpeed * rpmAddValue;
+            vel += newDir * newSpeed * Time.deltaTime*(1.0f-drift);
         }
 
         vel -= vel * drag * Time.deltaTime;//Drag?
