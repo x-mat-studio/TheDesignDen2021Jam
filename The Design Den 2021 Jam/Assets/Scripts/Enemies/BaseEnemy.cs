@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BaseEnemy : MonoBehaviour
 {
-    float mySpeed = 0;
-    int myLife = 1;
+    public float mySpeed = 0;
+    public int myLife = 1;
     Vector2 myDirection = Vector2.zero;
     public Color myColor = Color.black;
     public Color myOutlineColor = Color.red;
@@ -25,7 +25,7 @@ public class BaseEnemy : MonoBehaviour
     public EnemyType myType { get; protected set; } = EnemyType.NONE;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         if (myPlayer == null)
         {
@@ -71,7 +71,7 @@ public class BaseEnemy : MonoBehaviour
 
         myDirection = new Vector2(transform.position.x- myPlayer.transform.position.x, transform.position.y - myPlayer.transform.position.y);
         myDirection.Normalize();
-        myDirection *= mySpeed;
+        myDirection *= (mySpeed * Time.deltaTime);
         transform.position += new Vector3(myDirection.x,myDirection.y,0.0f);
     }
 
