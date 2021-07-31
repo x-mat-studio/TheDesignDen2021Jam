@@ -10,6 +10,7 @@ public class MainMenuManager : MonoBehaviour
     public GameObject mainMenu = null;
     public GameObject audioMenu = null;
     public GameObject creditsMenu = null;
+    public GameObject canvas = null;
     public AudioMixer mixer = null;
 
     // Start is called before the first frame update
@@ -61,7 +62,7 @@ public class MainMenuManager : MonoBehaviour
                 break;
 
             case "Julia":
-                Application.OpenURL("");
+                Application.OpenURL("https://github.com/JuliaBlasco");
                 break;
 
             case "Oscar":
@@ -84,6 +85,9 @@ public class MainMenuManager : MonoBehaviour
                 Application.OpenURL("https://github.com/HoduRe");
                 break;
         }
+
+        canvas.GetComponent<AudioSource>().Play();
+
     }
 
     public void SetVolume(GameObject gObject)
