@@ -8,11 +8,12 @@ public static class StaticGlobalVars
     public static float secondsToKillBoss = -1.0f;
 
     public static float revolutionsPerMinuteDisplay = 0.0f;
-
+    public static float maxRPMReached = 0.0f;
     public static void ResetStaticVars()
     {
         totalKills = 0;
         secondsToKillBoss = -1.0f;
         revolutionsPerMinuteDisplay = 0.0f;
+        maxRPMReached = 0.0f;
     }
 }

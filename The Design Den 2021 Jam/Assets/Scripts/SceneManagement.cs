@@ -55,6 +55,7 @@ public class SceneManagement : MonoBehaviour
     void Update()
     {
         Debug.Log("TOTAL KILLS: "+StaticGlobalVars.totalKills.ToString());
+        StaticGlobalVars.secondsToKillBoss = timeToWin;
 
         if (!lockOpenMenus) { timeToWin += Time.deltaTime; }
 
