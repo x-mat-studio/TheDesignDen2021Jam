@@ -135,9 +135,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 752731055, guid: 87e1443c8b5e91f4a89dd42f1b31ce0d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5096473083699981528, guid: 87e1443c8b5e91f4a89dd42f1b31ce0d, type: 3}
       propertyPath: mySpeed
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5096473083699981528, guid: 87e1443c8b5e91f4a89dd42f1b31ce0d, type: 3}
       propertyPath: myPlayer

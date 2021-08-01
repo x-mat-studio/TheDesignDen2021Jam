@@ -63,6 +63,8 @@ public class BossEnemy : BaseEnemy
     }
     private void SpawnEnemy()
     {
+      if(myLife > 0)
+      {
         float aux = Random.Range(0, 100);   //TODO: make them spawn inside the radious of the boss (random inside it), not inside the fkn boss
 
         GameObject auxG = null;
@@ -105,8 +107,9 @@ public class BossEnemy : BaseEnemy
         }
         if (enemySpawnSound != null) { enemySpawnSound.Play(); }
         else { Debug.Log("Audio Bank isn't in the scene!!"); }
-
+      }
     }
+
     private void PushPlayer()
     {
         Debug.Log("I bumped the player");
@@ -133,12 +136,14 @@ public class BossEnemy : BaseEnemy
 
         if (myLife == 0 && base.deathParticle != null)
         {
-            GameObject aux = Instantiate(base.deathParticle);
+            GameObject aux = Instantiate(base.deathParticle, gameObject.transform);          
             aux.transform.position = transform.position;
+            base.mySpeed = 0;
+            base.rotSpeedMultiplier = 0;
         }
         else if (HitParticle != null) 
         {
-            GameObject aux = Instantiate(HitParticle);
+            GameObject aux = Instantiate(HitParticle, gameObject.transform);
             aux.transform.position = transform.position;
         }
     }
