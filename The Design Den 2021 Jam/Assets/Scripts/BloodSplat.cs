@@ -5,6 +5,9 @@ using UnityEngine;
 public class BloodSplat : MonoBehaviour
 {
     public GameObject bloodSplatPrefab = null;
+    public GameObject audioBank = null;
+    private AudioSource audioSplat1 = null;
+    private AudioSource audioSplat2 = null;
     public Sprite[] sprites;
 
     public static BloodSplat bloodSplatHolder = null;
@@ -16,6 +19,14 @@ public class BloodSplat : MonoBehaviour
             GameObject.Destroy(bloodSplatHolder);
 
         bloodSplatHolder = this;
+
+        if (audioBank != null)
+        {
+            audioSplat1 = audioBank.transform.Find("bloodSplat1").gameObject.GetComponent<AudioSource>();
+            audioSplat2 = audioBank.transform.Find("bloodSplat2").gameObject.GetComponent<AudioSource>();
+        }
+        else { Debug.Log("There is no Audio Bank :0"); }
+
     }
 
     // Update is called once per frame
