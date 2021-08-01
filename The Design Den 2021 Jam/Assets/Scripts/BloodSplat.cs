@@ -50,9 +50,9 @@ public class BloodSplat : MonoBehaviour
             splat.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation);
 
             int randomIndex = Random.Range(0, sprites.Length);
-            bloodSplatPrefab.GetComponent<SpriteRenderer>().sprite = sprites[randomIndex];
+            splat.GetComponent<SpriteRenderer>().sprite = sprites[randomIndex];
 
-            bloodSplatPrefab.GetComponent<SpriteRenderer>().color = new Color(color.x, color.y, color.z);
+            splat.GetComponent<SpriteRenderer>().color = new Color(color.x, color.y, color.z);
         }
         else
             Debug.LogError("Need to add blood splat prefab asshole :D");

@@ -160,7 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   deadZoneDistance: 1
-  smoothSpeed: 0.25
+  smoothSpeed: 0.38
   followActive: 1
   scaleActive: 1
   speedToMaxScale: 5

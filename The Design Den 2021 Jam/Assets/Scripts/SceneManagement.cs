@@ -31,6 +31,9 @@ public class SceneManagement : MonoBehaviour
     public bool bossDead = false;
     float bossDeadTimer = 0.0f;
     public float bossDeadCinematicTime = 3.0f;
+    public bool enemyDead = false;
+    float enemyDeadTimer = 0.0f;
+    public float enemyDeaSnapshotTime = 0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +50,8 @@ public class SceneManagement : MonoBehaviour
             theCamera.GetComponent<CameraFollow>().target = boss.transform;
             bossDeadTimer += Time.deltaTime;
 
+            mixer.FindSnapshot("Victory").TransitionTo(0.1f);
+
             if (bossDeathAudio == null) { bossDeathAudio = audioBank.transform.Find("bossDeath").GetComponent<AudioSource>(); }
             else { if (bossDeathAudio.isPlaying == false) { bossDeathAudio.Play(); } }
 
@@ -55,8 +60,20 @@ public class SceneManagement : MonoBehaviour
                 bossDead = false;
                 theCamera.GetComponent<CameraFollow>().target = player.transform;
                 bossDeadTimer = 0.0f;
+                mixer.FindSnapshot("Snapshot").TransitionTo(0.0f);
 
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+        }
+
+        if (bossDead == false && enemyDead)
+        {
+            mixer.FindSnapshot("Victory").TransitionTo(0.0f);
+            enemyDeadTimer++;
+            if (enemyDeadTimer > enemyDeaSnapshotTime)
+            {
+                enemyDeadTimer = 0.0f;
+                mixer.FindSnapshot("Snapshot").TransitionTo(0.0f);
             }
         }
 

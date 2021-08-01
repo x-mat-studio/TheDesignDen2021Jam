@@ -8,8 +8,8 @@ public class BaseEnemy : MonoBehaviour
 
     public int myLife = 1;
     Vector2 myDirection = Vector2.zero;
-    public Color myColor = Color.black;
-    public Color myOutlineColor = Color.red;
+    Color myColor = Color.black;
+    Color myOutlineColor = Color.red;
     public SpriteRenderer mySprite = null;
     public SpriteRenderer myOutlineSprite = null;
     public PlayerController myPlayer = null;
@@ -34,6 +34,8 @@ public class BaseEnemy : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        SetColorFromSprites();
+
         if (myPlayer == null)
         {
             thereIsPlayer = false;
@@ -53,6 +55,24 @@ public class BaseEnemy : MonoBehaviour
         Rotate();
         lastFramePos = new Vector2(transform.position.x, transform.position.y);
         Move();
+
+        if (Mathf.Abs(Vector3.Distance(transform.position, myPlayer.transform.position)) > 100)
+        {
+            Suicide();
+        }
+    }
+
+    private void Suicide() 
+    {
+        Destroy(gameObject); //pops out of existence offscreen
+    }
+
+    void SetColorFromSprites()
+    {
+        if (mySprite != null)
+            myColor = mySprite.color;
+        if (myOutlineSprite != null)
+            myOutlineColor = myOutlineSprite.color;
     }
 
     void SetSpriteColor(Color inside, Color outline)
@@ -88,11 +108,20 @@ public class BaseEnemy : MonoBehaviour
         if (downAngle < upperAngle)
             angle = -angle;
 
-        BloodSplat.bloodSplatHolder.GetComponent<BloodSplat>().CreateSplat(gameObject.transform.position, angle, 
+        BloodSplat.bloodSplatHolder.GetComponent<BloodSplat>().CreateSplat(gameObject.transform.position, angle,
                                             new Vector3(myColor.r, myColor.g, myColor.b));
         //Sound
+
+        //Enemy dies means spin goes brbrbr
+        
+        myPlayer.GetComponent<SwordController>().ChangeRotationSudden(Mathf.FloorToInt(mySpeed / 4));
+
+        //kill this mofo
         Debug.Log("I got killed");
-        Destroy(gameObject); //keep this as last line of the code   
+        StaticGlobalVars.totalKills++;
+        Destroy(gameObject); //keep this as last line of the code
+        
+
     }
 
 
@@ -126,10 +155,19 @@ public class BaseEnemy : MonoBehaviour
         myLife -= 1;
         if (myLife == 0)
         {
-            if (gameObject.tag != "Boss") { Die(); }
+            GameObject manager = GameObject.Find("SceneManager");
+
+            if (gameObject.tag != "Boss")
+            {
+
+                if (manager != null) { manager.GetComponent<SceneManagement>().enemyDead = true; }
+                else { Debug.Log("There is no Scene Manager in your scene. Manage it."); }
+                Die();
+
+            }
+
             else
             {
-                GameObject manager = GameObject.Find("SceneManager");
                 if (manager != null) { manager.GetComponent<SceneManagement>().bossDead = true; }
                 else { Debug.Log("There is no Scene Manager in your scene. Manage it."); }
             }
