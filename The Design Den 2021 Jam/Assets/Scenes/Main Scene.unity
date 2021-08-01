@@ -558,8 +558,16 @@ PrefabInstance:
       objectReference: {fileID: 930387499}
     - target: {fileID: 3562960613396566656, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
       propertyPath: bossDead
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3562960613396566656, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
+      propertyPath: audioBank
+      value: 
+      objectReference: {fileID: 1573663704}
+    - target: {fileID: 3562960613396566656, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
+      propertyPath: theCamera
+      value: 
+      objectReference: {fileID: 107372916}
     - target: {fileID: 3562960613396566661, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
       propertyPath: m_RootOrder
       value: 3
