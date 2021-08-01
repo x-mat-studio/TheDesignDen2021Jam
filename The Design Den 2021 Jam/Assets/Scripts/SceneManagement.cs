@@ -46,7 +46,9 @@ public class SceneManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (lockOpenMenus) { timeToWin += Time.deltaTime; }
+        Debug.Log("TOTAL KILLS: "+StaticGlobalVars.totalKills.ToString());
+
+        if (!lockOpenMenus) { timeToWin += Time.deltaTime; }
 
         if (bossDead)
         {
@@ -54,6 +56,7 @@ public class SceneManagement : MonoBehaviour
             {
                 firstFrameKill = false;
                 StaticGlobalVars.secondsToKillBoss = timeToWin;
+                Debug.Log("SECONDS TO KILL BOSS: " + StaticGlobalVars.secondsToKillBoss.ToString());
             }
 
             lockOpenMenus = true;
