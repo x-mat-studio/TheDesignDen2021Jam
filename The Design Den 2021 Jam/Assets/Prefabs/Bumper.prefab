@@ -99,8 +99,9 @@ MonoBehaviour:
   pushForce: 650
   sizeExpand: 0.15
   sizeExpandSpeed: 3
-  rotationBonus: 100
+  rotationBonus: 30
   particleBurst: {fileID: 4752422608829013753}
+  audioBank: {fileID: 0}
 --- !u!1 &2362826212379733438
 GameObject:
   m_ObjectHideFlags: 0

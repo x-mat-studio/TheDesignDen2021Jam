@@ -19368,12 +19368,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sword: {fileID: 3116463194937526866}
   audioBank: {fileID: 0}
+  cam: {fileID: 0}
   timeBeforeStopping: 1
   timeReduceSpeed: 0.5
   timeBeforeDead: 10
   deadTimer: 0
+  timeBeforeBlurr: 2
+  blurTimer: 0
   rpm: 0
   rpmLerpSpeed: 0.5
+  maxRPMReached: 0
 --- !u!114 &3116463195778989052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19389,7 +19393,7 @@ MonoBehaviour:
   baseSpeed: 10
   drift: 0.5
   drag: 1
-  rpmAddValue: 0.125
+  rpmAddValue: 0.18
 --- !u!50 &5705928684022256954
 Rigidbody2D:
   serializedVersion: 4
@@ -19449,9 +19453,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03343b6f9304d254b998fb6f5bb26ada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positiveToNegativeBumperRatio: 50
+  positiveToNegativeBumperRatio: 70
   numOfBumpersToSpawnAtOnce: 3
-  secondsBetweenWaves: 45
+  secondsBetweenWaves: 10
   spawnRadiusFromPlayer: 30
   maxBumpersAllowed: 10
   bumperPlus: {fileID: 1741383411475171880, guid: 623058b2e8959fc44b7eebb556feecb5, type: 3}

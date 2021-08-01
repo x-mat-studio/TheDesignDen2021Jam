@@ -131,7 +131,7 @@ public class BaseEnemy : MonoBehaviour
         StaticGlobalVars.totalKills++;
         GameObject newGm = Instantiate(killTextObj);
         newGm.GetComponent<KillTextBehaviour>().myColor = myColor;
-        newGm.transform.position = gameObject.transform.position + new Vector3(-0.15f, 0.2f, 0.0f);
+        newGm.transform.position = gameObject.transform.position + new Vector3(-1.6f, 2.2f, 0.0f);
         
         Destroy(gameObject); //keep this as last line of the code.cant destroy it directly or particle system stops doing particles
 
