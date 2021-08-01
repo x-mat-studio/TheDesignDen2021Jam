@@ -9835,7 +9835,7 @@ Transform:
   m_GameObject: {fileID: 6579125183893349280}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -25.130047}
-  m_LocalScale: {x: 1.2565024, y: 1.2565024, z: 1.2565024}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7854461315652930431}
   m_RootOrder: 3
@@ -14808,6 +14808,7 @@ MonoBehaviour:
   mySprite: {fileID: 3127406427804806217}
   myOutlineSprite: {fileID: 3598523361561832194}
   myPlayer: {fileID: 0}
+  deathParticle: {fileID: 4458842918136155607}
   rotSpeedMultiplier: 5
 --- !u!61 &4760031296509265781
 BoxCollider2D:

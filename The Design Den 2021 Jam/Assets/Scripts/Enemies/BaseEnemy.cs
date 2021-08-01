@@ -15,6 +15,7 @@ public class BaseEnemy : MonoBehaviour
     public PlayerController myPlayer = null;
     AudioSource entityHit = null;
     bool thereIsPlayer = true;
+    public ParticleSystem deathParticle = null;
 
     [Range(0.0f, 100.0f)]
     public float rotSpeedMultiplier = 1.0f;
@@ -56,9 +57,12 @@ public class BaseEnemy : MonoBehaviour
         lastFramePos = new Vector2(transform.position.x, transform.position.y);
         Move();
 
-        if (Mathf.Abs(Vector3.Distance(transform.position, myPlayer.transform.position)) > 100)
+        if (myPlayer != null)
         {
-            Suicide();
+            if (Mathf.Abs(Vector3.Distance(transform.position, myPlayer.transform.position)) > 100)
+            {
+                Suicide();
+            }
         }
     }
 
@@ -110,7 +114,12 @@ public class BaseEnemy : MonoBehaviour
 
         BloodSplat.bloodSplatHolder.GetComponent<BloodSplat>().CreateSplat(gameObject.transform.position, angle,
                                             new Vector3(myColor.r, myColor.g, myColor.b));
-        //Sound
+        //DeathParticle
+
+        if (deathParticle != null)
+        {
+            deathParticle.Play();
+        }
 
         //Enemy dies means spin goes brbrbr
         
@@ -119,8 +128,11 @@ public class BaseEnemy : MonoBehaviour
         //kill this mofo
         Debug.Log("I got killed");
         StaticGlobalVars.totalKills++;
-        Destroy(gameObject); //keep this as last line of the code
         
+
+        
+        Destroy(gameObject); //keep this as last line of the code.cant destroy it directly or particle system stops doing particles
+
 
     }
 
