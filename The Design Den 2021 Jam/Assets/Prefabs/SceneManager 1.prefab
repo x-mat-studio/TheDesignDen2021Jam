@@ -27,7 +27,7 @@ RectTransform:
   m_GameObject: {fileID: 182481337190489141}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.71, y: 1.71, z: 1.71}
+  m_LocalScale: {x: 1.7099999, y: 1.7099999, z: 1.7099999}
   m_Children: []
   m_Father: {fileID: 1451738728425931825}
   m_RootOrder: 0
@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: -30.974945}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1944660563485815844
 CanvasRenderer:
@@ -2558,8 +2558,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1451738728425931825}
   - {fileID: 7755566868162163149}
+  - {fileID: 1451738728425931825}
   - {fileID: 5956461561199251969}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -2583,6 +2583,7 @@ MonoBehaviour:
   inGameMenu: {fileID: 2330818803831100179}
   inGameAudioMenu: {fileID: 2931667075075731823}
   inGameCreditsMenu: {fileID: 8544330254985630019}
+  winMenu: {fileID: 0}
   canvas: {fileID: 7755566868162163137}
   mixer: {fileID: 24100000, guid: ca1f8e21e49d4eb4f992117181a28ebc, type: 2}
   globalMenu: {fileID: 7755566867764272125}
@@ -3898,7 +3899,7 @@ RectTransform:
   - {fileID: 9127981285025389259}
   - {fileID: 7755566868511468616}
   m_Father: {fileID: 3562960613396566661}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7683,7 +7684,7 @@ RectTransform:
   - {fileID: 735723747961217495}
   - {fileID: 3466320006376549856}
   m_Father: {fileID: 3562960613396566661}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
