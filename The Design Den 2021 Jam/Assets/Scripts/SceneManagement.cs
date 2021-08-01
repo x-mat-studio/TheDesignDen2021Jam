@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class SceneManagement : MonoBehaviour
 {
     public GameObject mainMenu = null;
+    public GameObject titleCanvas = null;
     public GameObject mainMenuTitle = null;
     public GameObject audioMenu = null;
     public GameObject creditsMenu = null;
@@ -210,6 +211,7 @@ public class SceneManagement : MonoBehaviour
             mainMenu.SetActive(false);
             if (mainMenuTitle != null)
                 mainMenuTitle.SetActive(false);
+            titleCanvas.SetActive(false);
         }
         else
         {
@@ -217,6 +219,7 @@ public class SceneManagement : MonoBehaviour
             if (mainMenuTitle != null)
                 mainMenuTitle.SetActive(true);
 
+            titleCanvas.SetActive(true);
             lockOpenMenus = true;
         }
 

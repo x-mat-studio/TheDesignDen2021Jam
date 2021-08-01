@@ -10,7 +10,6 @@ public class SwordController : MonoBehaviour
     public CameraFollow cam = null;
     private AudioSource audioBuzz1 = null;
     private AudioSource audioBuzz2 = null;
-    private AudioSource audioCircle = null;
     private AudioSource audioDeath = null;
 
     private int loops = 0;  //Negative means counter clock wise movement
@@ -57,7 +56,6 @@ public class SwordController : MonoBehaviour
         {
             audioBuzz1 = audioBank.transform.Find("weaponBuzz1").gameObject.GetComponent<AudioSource>();
             audioBuzz2 = audioBank.transform.Find("weaponBuzz2").gameObject.GetComponent<AudioSource>();
-            audioCircle = audioBank.transform.Find("circleCompleted").gameObject.GetComponent<AudioSource>();
             audioDeath = audioBank.transform.Find("playerDeath").gameObject.GetComponent<AudioSource>();
         }
         else { Debug.Log("There is no Audio Bank :0"); }
@@ -164,7 +162,6 @@ public class SwordController : MonoBehaviour
         if (quadrantChanges == 4)
         {
             loops++;
-            audioCircle.Play();
             quadrantChanges = 0;
             RecalculateRPM();
 
@@ -174,7 +171,6 @@ public class SwordController : MonoBehaviour
         else if (quadrantChanges == -4)
         {
             loops--;
-            audioCircle.Play();
             quadrantChanges = 0;
             RecalculateRPM();
 
