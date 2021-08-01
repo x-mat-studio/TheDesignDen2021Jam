@@ -14810,6 +14810,7 @@ MonoBehaviour:
   myPlayer: {fileID: 0}
   deathParticle: {fileID: 4458842918136155607}
   rotSpeedMultiplier: 5
+  killTextObj: {fileID: 7168997904463316752, guid: 462fe4b3ebe0dc14cac8a938c7b82bf0, type: 3}
 --- !u!61 &4760031296509265781
 BoxCollider2D:
   m_ObjectHideFlags: 0
