@@ -82,18 +82,6 @@ public class SceneManagement : MonoBehaviour
             }
         }
 
-        if (bossDead == false && enemyDead)
-        {
-            mixer.FindSnapshot("Death").TransitionTo(0.0f);
-            enemyDeadTimer += Time.deltaTime;
-            if (enemyDeadTimer > enemyDeaSnapshotTime)
-            {
-                enemyDeadTimer = 0.0f;
-                mixer.FindSnapshot("Snapshot").TransitionTo(0.0f);
-                enemyDead = false;
-            }
-        }
-
         if (Input.GetKeyUp(KeyCode.Escape) && lockOpenMenus == false)
         {
             Time.timeScale = 0.000000001f;
