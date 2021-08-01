@@ -11,6 +11,7 @@ TagManager:
   - Grid
   - Boss
   - Enemy
+  - AudioMixer
   layers:
   - Default
   - TransparentFX

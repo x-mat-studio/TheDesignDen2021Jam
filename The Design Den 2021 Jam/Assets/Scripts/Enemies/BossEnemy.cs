@@ -8,6 +8,8 @@ public class BossEnemy : BaseEnemy
     public GameObject EnemySlow = null;
     public GameObject EnemyNormal = null;
     public GameObject EnemyFast = null;
+    AudioSource enemySpawnSound = null;
+    AudioSource bossDeath = null;
     float counterSpawn = 0.0f;
     public float spawnTimer = 100.0f; //higher = takes more time to spawn 
     public int rate100SpawnNormal = 100; //percentatge
@@ -25,6 +27,10 @@ public class BossEnemy : BaseEnemy
         if (EnemySlow == null) { Debug.Log("Slow enemy still unasigned to boss"); }
         if (EnemyNormal == null) { Debug.Log("Normal enemy still unasigned to boss"); }
         if (EnemyFast == null) { Debug.Log("Fast enemy still unasigned to boss"); }
+
+        GameObject audioBank = GameObject.FindWithTag("AudioMixer");
+        enemySpawnSound = audioBank.transform.Find("enemySpawn").GetComponent<AudioSource>();
+        bossDeath = audioBank.transform.Find("bossDeath").GetComponent<AudioSource>();
 
     }
 
@@ -91,6 +97,10 @@ public class BossEnemy : BaseEnemy
             auxG.transform.position = new Vector3(transform.position.x + auxPosX, transform.position.y + auxPosY, 0);
             auxG.GetComponent<BaseEnemy>().myPlayer = myPlayer;
         }
+
+        if (enemySpawnSound != null) { enemySpawnSound.Play(); }
+        else { Debug.Log("Audio Bank isn't in the scene!!"); }
+
     }
     private void PushPlayer()
     { 
