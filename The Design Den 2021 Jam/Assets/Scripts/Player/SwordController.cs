@@ -88,10 +88,10 @@ public class SwordController : MonoBehaviour
         if (rpm > maxRPMReached)
         {
             maxRPMReached = rpm;
-            StaticGlobalVars.maxRPMReached = maxRPMReached;
+            StaticGlobalVars.maxRPMReached = Mathf.Abs(maxRPMReached);
         }
 
-        StaticGlobalVars.revolutionsPerMinuteDisplay = rpm;
+        StaticGlobalVars.revolutionsPerMinuteDisplay = Mathf.Abs(rpm);
     }
 
     private void CalculateCurrentQuadrant()
