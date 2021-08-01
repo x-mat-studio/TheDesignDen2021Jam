@@ -114,7 +114,7 @@ public class BaseEnemy : MonoBehaviour
 
         //Enemy dies means spin goes brbrbr
         
-        myPlayer.GetComponent<SwordController>().ChangeRotationSudden(Mathf.FloorToInt(mySpeed / 4));
+        myPlayer.GetComponent<SwordController>().ChangeRotationSudden(Mathf.FloorToInt(mySpeed / 2));
 
         //kill this mofo
         Debug.Log("I got killed");

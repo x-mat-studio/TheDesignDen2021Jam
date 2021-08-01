@@ -4965,8 +4965,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mySpeed: 5
   myLife: 3
-  myColor: {r: 1, g: 0.11792451, b: 0.6643456, a: 1}
-  myOutlineColor: {r: 0.7075472, g: 0.34376115, b: 0.34376115, a: 1}
   mySprite: {fileID: 5501616520999849987}
   myOutlineSprite: {fileID: 5501616522175277648}
   myPlayer: {fileID: 0}
@@ -5043,7 +5041,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -6600393709203145329, guid: ca1f8e21e49d4eb4f992117181a28ebc, type: 2}
   m_audioClip: {fileID: 8300000, guid: 569859da3dcb3b043975af028e673b14, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 1
   Mute: 0
