@@ -9,6 +9,7 @@ public class SceneManagement : MonoBehaviour
 {
     public GameObject mainMenu = null;
     public GameObject titleCanvas = null;
+    public GameObject howToPlayMenu = null;
     public GameObject mainMenuTitle = null;
     public GameObject audioMenu = null;
     public GameObject creditsMenu = null;
@@ -143,6 +144,10 @@ public class SceneManagement : MonoBehaviour
                 SetMenusFalse(inGameAudioMenu);
                 break;
 
+            case "HowToPlay":
+                SetMenusFalse(howToPlayMenu);
+                break;
+
             case "Return":
             case "ReturnToMainMenu":
                 SetMenusFalse(mainMenu);
@@ -231,6 +236,12 @@ public class SceneManagement : MonoBehaviour
         else
         {
             creditsMenu.SetActive(true);
+            titleCanvas.SetActive(true);
+        }
+
+        if (howToPlayMenu != trueObject) { howToPlayMenu.SetActive(false); }
+        else {
+            howToPlayMenu.SetActive(true);
             titleCanvas.SetActive(true);
         }
 
