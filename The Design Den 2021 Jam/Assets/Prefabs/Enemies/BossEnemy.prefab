@@ -4963,7 +4963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36444b88e5f0f0742be81151d151ebad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mySpeed: 2
+  mySpeed: 5
   myLife: 3
   myColor: {r: 1, g: 0.11792451, b: 0.6643456, a: 1}
   myOutlineColor: {r: 0.7075472, g: 0.34376115, b: 0.34376115, a: 1}
@@ -4975,12 +4975,14 @@ MonoBehaviour:
   EnemySlow: {fileID: 7854461315652930426, guid: bdc5fbc222012f244af352f1a95772b6, type: 3}
   EnemyNormal: {fileID: 2217095555907616817, guid: de17376349d13264bbec6e24b6a82a3c, type: 3}
   EnemyFast: {fileID: 2429443042700596742, guid: bbff5a9747c4de04a89becc03f06d3c1, type: 3}
-  spawnTimer: 3
+  spawnTimer: 2
   rate100SpawnNormal: 70
-  rate100SpawnSlow: 100
-  rate100SpawnFast: 30
-  radOfSpawnMin: 15
-  radOfSpawnMax: 20
+  rate100SpawnSlow: 90
+  rate100SpawnFast: 50
+  minEnemiesSpawned: 3
+  maxEnemiesSpawned: 10
+  radOfSpawnMin: 7
+  radOfSpawnMax: 15
 --- !u!61 &8078976135550178698
 BoxCollider2D:
   m_ObjectHideFlags: 0

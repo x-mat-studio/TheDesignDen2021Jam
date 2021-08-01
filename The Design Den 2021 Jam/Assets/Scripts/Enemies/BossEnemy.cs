@@ -14,6 +14,8 @@ public class BossEnemy : BaseEnemy
     public int rate100SpawnNormal = 100; //percentatge
     public int rate100SpawnSlow = 100;
     public int rate100SpawnFast = 100;
+    public int minEnemiesSpawned = 0;
+    public int maxEnemiesSpawned = 0;
 
     [Range(0.0f,100.0f)]
     public float radOfSpawnMin = 15.0f;
@@ -58,38 +60,43 @@ public class BossEnemy : BaseEnemy
         float aux = Random.Range(0, 100);   //TODO: make them spawn inside the radious of the boss (random inside it), not inside the fkn boss
 
         GameObject auxG = null;
-        Vector2 auxPos= Vector2.zero;    
+        Vector2 auxPos= Vector2.zero;
 
-        if (aux < rate100SpawnFast)
+        int randSpawn = Random.Range(minEnemiesSpawned, maxEnemiesSpawned);
+
+
+        for (int i=0; i< Mathf.Max(randSpawn,1); i++) 
         {
-            auxG = Instantiate(EnemyFast);
+            if (aux < rate100SpawnFast)
+            {
+                auxG = Instantiate(EnemyFast);
 
-            auxPos = RandomSpawnpoint();
-            auxG.transform.position = new Vector3(transform.position.x + auxPos.x, transform.position.y + auxPos.y, 0);
+                auxPos = RandomSpawnpoint();
+                auxG.transform.position = new Vector3(transform.position.x + auxPos.x, transform.position.y + auxPos.y, 0);
 
-            auxG.GetComponent<BaseEnemy>().myPlayer = myPlayer;
+                auxG.GetComponent<BaseEnemy>().myPlayer = myPlayer;
+            }
+
+            if (aux < rate100SpawnNormal)
+            {
+                auxG = Instantiate(EnemyNormal);
+
+                auxPos = RandomSpawnpoint();
+                auxG.transform.position = new Vector3(transform.position.x + auxPos.x, transform.position.y + auxPos.y, 0);
+
+                auxG.GetComponent<BaseEnemy>().myPlayer = myPlayer;
+            }
+
+            if (aux < rate100SpawnSlow)
+            {
+                auxG = Instantiate(EnemySlow);
+
+                auxPos = RandomSpawnpoint();
+                auxG.transform.position = new Vector3(transform.position.x + auxPos.x, transform.position.y + auxPos.y, 0);
+
+                auxG.GetComponent<BaseEnemy>().myPlayer = myPlayer;
+            }
         }
-
-        if (aux < rate100SpawnNormal)
-        {
-            auxG = Instantiate(EnemyNormal);
-
-            auxPos = RandomSpawnpoint();
-            auxG.transform.position = new Vector3(transform.position.x + auxPos.x, transform.position.y + auxPos.y, 0);
-
-            auxG.GetComponent<BaseEnemy>().myPlayer = myPlayer;
-        }
-
-        if (aux < rate100SpawnSlow)
-        {
-            auxG = Instantiate(EnemySlow);
-
-            auxPos = RandomSpawnpoint();
-            auxG.transform.position = new Vector3(transform.position.x + auxPos.x, transform.position.y + auxPos.y, 0);
-
-            auxG.GetComponent<BaseEnemy>().myPlayer = myPlayer;
-        }
-
         if (enemySpawnSound != null) { enemySpawnSound.Play(); }
         else { Debug.Log("Audio Bank isn't in the scene!!"); }
 
