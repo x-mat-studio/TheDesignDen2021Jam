@@ -5,6 +5,7 @@ using UnityEngine;
 public class BaseEnemy : MonoBehaviour
 {
     public float mySpeed = 0;
+  
     public int myLife = 1;
     Vector2 myDirection = Vector2.zero;
     public Color myColor = Color.black;
@@ -13,6 +14,11 @@ public class BaseEnemy : MonoBehaviour
     public SpriteRenderer myOutlineSprite = null;
     public PlayerController myPlayer = null;
     bool thereIsPlayer = true;
+
+    [Range(0.0f,100.0f)]
+    public float rotSpeedMultiplier = 1.0f;
+
+    Vector2 lastFramePos = Vector2.zero;
     public enum EnemyType
     {
         ENEMY_SLOW,
@@ -37,6 +43,8 @@ public class BaseEnemy : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
+        Rotate();
+        lastFramePos = new Vector2(transform.position.x, transform.position.y);
         Move();
     }
 
@@ -62,6 +70,13 @@ public class BaseEnemy : MonoBehaviour
         //Sound
         Debug.Log("I got killed");
         Destroy(gameObject); //keep this as last line of the code   
+    }
+
+
+    void Rotate()
+    {
+        float speed = new Vector2(transform.position.x - lastFramePos.x, transform.position.y - lastFramePos.y).magnitude/Time.deltaTime;
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z - speed * rotSpeedMultiplier * Time.deltaTime);
     }
 
     void Move()

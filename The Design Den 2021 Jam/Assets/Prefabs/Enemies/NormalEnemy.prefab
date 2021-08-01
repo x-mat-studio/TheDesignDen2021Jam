@@ -136,6 +136,7 @@ MonoBehaviour:
   mySprite: {fileID: 6182473259963074937}
   myOutlineSprite: {fileID: 2460228427536841986}
   myPlayer: {fileID: 0}
+  rotSpeedMultiplier: 10
 --- !u!50 &4193386762478484586
 Rigidbody2D:
   serializedVersion: 4

@@ -15,7 +15,12 @@ public class BossEnemy : BaseEnemy
     public int rate100SpawnNormal = 100; //percentatge
     public int rate100SpawnSlow = 100;
     public int rate100SpawnFast = 100;
-    public float radOfSpawn = 20.0f;
+
+    [Range(0.0f,100.0f)]
+    public float radOfSpawnMin = 15.0f;
+    [Range(0.0f, 100.0f)]
+    public float radOfSpawnMax = 20.0f;
+
 
     protected override void Start()
     {
@@ -48,53 +53,52 @@ public class BossEnemy : BaseEnemy
     protected override void Update()
     {
         base.Update();
-        if (counterSpawn < spawnTimer) 
-        { 
-            counterSpawn += 1 * Time.deltaTime; 
+        if (counterSpawn < spawnTimer)
+        {
+            counterSpawn += 1 * Time.deltaTime;
         }
-        else 
-        { 
+        else
+        {
             counterSpawn = 0;
             SpawnEnemy();
         }
 
 
     }
-    private void SpawnEnemy() 
+    private void SpawnEnemy()
     {
         float aux = Random.Range(0, 100);   //TODO: make them spawn inside the radious of the boss (random inside it), not inside the fkn boss
 
-        if (aux < rate100SpawnFast) 
-        { 
-            GameObject auxG = Instantiate(EnemyFast);
-            
-            float auxPosX = Random.Range(-radOfSpawn, radOfSpawn);
-            float auxPosY = Random.Range(-radOfSpawn, radOfSpawn);
+        GameObject auxG = null;
+        Vector2 auxPos= Vector2.zero;    
 
-            auxG.transform.position = new Vector3(transform.position.x + auxPosX, transform.position.y + auxPosY, 0);
+        if (aux < rate100SpawnFast)
+        {
+            auxG = Instantiate(EnemyFast);
+
+            auxPos = RandomSpawnpoint();
+            auxG.transform.position = new Vector3(transform.position.x + auxPos.x, transform.position.y + auxPos.y, 0);
 
             auxG.GetComponent<BaseEnemy>().myPlayer = myPlayer;
         }
 
         if (aux < rate100SpawnNormal)
         {
-            GameObject auxG = Instantiate(EnemyNormal);
+            auxG = Instantiate(EnemyNormal);
 
-            float auxPosX = Random.Range(-radOfSpawn, radOfSpawn);
-            float auxPosY = Random.Range(-radOfSpawn, radOfSpawn);
+            auxPos = RandomSpawnpoint();
+            auxG.transform.position = new Vector3(transform.position.x + auxPos.x, transform.position.y + auxPos.y, 0);
 
-            auxG.transform.position = new Vector3(transform.position.x + auxPosX, transform.position.y + auxPosY, 0);
             auxG.GetComponent<BaseEnemy>().myPlayer = myPlayer;
         }
 
         if (aux < rate100SpawnSlow)
         {
-            GameObject auxG = Instantiate(EnemySlow);
+            auxG = Instantiate(EnemySlow);
 
-            float auxPosX = Random.Range(-radOfSpawn, radOfSpawn);
-            float auxPosY = Random.Range(-radOfSpawn, radOfSpawn);
+            auxPos = RandomSpawnpoint();
+            auxG.transform.position = new Vector3(transform.position.x + auxPos.x, transform.position.y + auxPos.y, 0);
 
-            auxG.transform.position = new Vector3(transform.position.x + auxPosX, transform.position.y + auxPosY, 0);
             auxG.GetComponent<BaseEnemy>().myPlayer = myPlayer;
         }
 
@@ -103,11 +107,22 @@ public class BossEnemy : BaseEnemy
 
     }
     private void PushPlayer()
-    { 
+    {
         Debug.Log("I bumped the player");
         Vector2 myPos = new Vector2(transform.position.x, transform.position.y);
         myPlayer.AddPush(myBumpForce, myPos);
-       
-    }    
+
+    }
+
+
+    Vector2 RandomSpawnpoint()
+    {
+        Vector2 spawnDir = Random.insideUnitCircle.normalized;
+
+        float scale = Random.Range(radOfSpawnMin, radOfSpawnMax);
+
+        return spawnDir*scale;
+    }
+
 }
 

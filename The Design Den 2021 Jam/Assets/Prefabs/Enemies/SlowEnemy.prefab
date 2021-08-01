@@ -218,6 +218,7 @@ MonoBehaviour:
   mySprite: {fileID: 3127406427804806217}
   myOutlineSprite: {fileID: 3598523361561832194}
   myPlayer: {fileID: 0}
+  rotSpeedMultiplier: 5
 --- !u!61 &4760031296509265781
 BoxCollider2D:
   m_ObjectHideFlags: 0
