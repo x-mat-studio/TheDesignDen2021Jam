@@ -4582,6 +4582,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3466320006376549856}
+  - component: {fileID: 6052605033635903143}
   m_Layer: 5
   m_Name: WinMenu
   m_TagString: Untagged
@@ -4613,6 +4614,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 75.7}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6052605033635903143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5325859733019002267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adba889330fdd4b4da7871903eb4987a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  killCountText: {fileID: 3916812979209328603}
+  maxRPMText: {fileID: 4505481665918413174}
+  timeText: {fileID: 270147351481580100}
+  highScoreText: {fileID: 6359786054360135192}
+  animationDuration: 5
 --- !u!1 &5360566524818973980
 GameObject:
   m_ObjectHideFlags: 0
