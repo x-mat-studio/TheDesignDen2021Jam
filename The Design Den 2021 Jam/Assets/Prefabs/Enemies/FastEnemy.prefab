@@ -9857,10 +9857,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d4605ea4f715c4abb3ee0a91054345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mySpeed: 10
+  mySpeed: 8
   myLife: 1
-  myColor: {r: 0, g: 0, b: 0, a: 1}
-  myOutlineColor: {r: 1, g: 0, b: 0, a: 1}
   mySprite: {fileID: 107088909461278074}
   myOutlineSprite: {fileID: 2429443042945844082}
   myPlayer: {fileID: 0}
