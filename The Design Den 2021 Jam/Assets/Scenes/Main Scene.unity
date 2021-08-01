@@ -361,13 +361,9 @@ PrefabInstance:
       value: BloodSplatHolder
       objectReference: {fileID: 0}
     - target: {fileID: 8754915988800464235, guid: 7ce977f0473d4be48a671fc64145ee2a, type: 3}
-      propertyPath: sprites.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8754915988800464235, guid: 7ce977f0473d4be48a671fc64145ee2a, type: 3}
-      propertyPath: sprites.Array.data[0]
+      propertyPath: audioBank
       value: 
-      objectReference: {fileID: 21300000, guid: 9166bda05a73f124a880f226e5846458, type: 3}
+      objectReference: {fileID: 1573663704}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ce977f0473d4be48a671fc64145ee2a, type: 3}
 --- !u!1001 &1810980701
@@ -621,22 +617,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 60536374, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 3562960613396566656, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
       propertyPath: boss
       value: 
       objectReference: {fileID: 1756935761}
     - target: {fileID: 3562960613396566656, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
-      propertyPath: camera
-      value: 
-      objectReference: {fileID: 107372916}
-    - target: {fileID: 3562960613396566656, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 930387499}
-    - target: {fileID: 3562960613396566656, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
-      propertyPath: bossDead
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3562960613396566656, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
       propertyPath: audioBank
       value: 
@@ -693,33 +685,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneManager
       objectReference: {fileID: 0}
-    - target: {fileID: 7755566867060961712, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: fcc4e33441de9064cb0647ae367d7bb0, type: 3}
-    - target: {fileID: 7755566868195863678, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: fcc4e33441de9064cb0647ae367d7bb0, type: 3}
-    - target: {fileID: 7755566868212041168, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: fcc4e33441de9064cb0647ae367d7bb0, type: 3}
-    - target: {fileID: 7755566868511468599, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
-      propertyPath: m_Text
-      value: Neon Looper
-      objectReference: {fileID: 0}
-    - target: {fileID: 7755566868511468599, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 9d700858b97d9154ba70914b7f144ad2, type: 3}
-    - target: {fileID: 7755566868511468599, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7755566868795081382, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: fcc4e33441de9064cb0647ae367d7bb0, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}

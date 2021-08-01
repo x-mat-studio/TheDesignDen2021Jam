@@ -8,8 +8,8 @@ public class BaseEnemy : MonoBehaviour
 
     public int myLife = 1;
     Vector2 myDirection = Vector2.zero;
-    public Color myColor = Color.black;
-    public Color myOutlineColor = Color.red;
+    Color myColor = Color.black;
+    Color myOutlineColor = Color.red;
     public SpriteRenderer mySprite = null;
     public SpriteRenderer myOutlineSprite = null;
     public PlayerController myPlayer = null;
@@ -34,6 +34,8 @@ public class BaseEnemy : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        SetColorFromSprites();
+
         if (myPlayer == null)
         {
             thereIsPlayer = false;
@@ -63,6 +65,14 @@ public class BaseEnemy : MonoBehaviour
     private void Suicide() 
     {
         Destroy(gameObject); //pops out of existence offscreen
+    }
+
+    void SetColorFromSprites()
+    {
+        if (mySprite != null)
+            myColor = mySprite.color;
+        if (myOutlineSprite != null)
+            myOutlineColor = myOutlineSprite.color;
     }
 
     void SetSpriteColor(Color inside, Color outline)
@@ -98,7 +108,7 @@ public class BaseEnemy : MonoBehaviour
         if (downAngle < upperAngle)
             angle = -angle;
 
-        BloodSplat.bloodSplatHolder.GetComponent<BloodSplat>().CreateSplat(gameObject.transform.position, angle, 
+        BloodSplat.bloodSplatHolder.GetComponent<BloodSplat>().CreateSplat(gameObject.transform.position, angle,
                                             new Vector3(myColor.r, myColor.g, myColor.b));
         //Sound
 

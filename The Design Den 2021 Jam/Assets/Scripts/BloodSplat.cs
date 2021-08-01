@@ -36,6 +36,12 @@ public class BloodSplat : MonoBehaviour
 
     public void CreateSplat(Vector3 position, float rotation, Vector3 color)
     {
+        if (audioSplat1 != null && audioSplat2 != null)
+        {
+            if (Random.Range(1.0f, 2.0f) > 1.5) { audioSplat1.Play(); }
+            else { audioSplat2.Play(); }
+        }
+
         if (bloodSplatPrefab != null)
         {
             GameObject splat = Instantiate(bloodSplatPrefab);
@@ -44,9 +50,9 @@ public class BloodSplat : MonoBehaviour
             splat.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation);
 
             int randomIndex = Random.Range(0, sprites.Length);
-            bloodSplatPrefab.GetComponent<SpriteRenderer>().sprite = sprites[randomIndex];
+            splat.GetComponent<SpriteRenderer>().sprite = sprites[randomIndex];
 
-            bloodSplatPrefab.GetComponent<SpriteRenderer>().color = new Color(color.x, color.y, color.z);
+            splat.GetComponent<SpriteRenderer>().color = new Color(color.x, color.y, color.z);
         }
         else
             Debug.LogError("Need to add blood splat prefab asshole :D");
