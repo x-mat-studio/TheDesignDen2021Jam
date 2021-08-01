@@ -12,6 +12,7 @@ TagManager:
   - Boss
   - Enemy
   - AudioMixer
+  - Sword
   layers:
   - Default
   - TransparentFX
