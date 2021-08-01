@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SwordController : MonoBehaviour
 {
@@ -32,8 +33,11 @@ public class SwordController : MonoBehaviour
     public float timeReduceSpeed = 0.5f;
     private float beforeStopTimer = 0.0f;
 
-    public float timeBeforeDead = 10.0f;
+    public float timeBeforeDead = 5.0f;
     public float deadTimer = 0.0f;
+
+    public float timeBeforeBlurr = 2.0f;
+    public float blurTimer = 0.0f;
 
     private float sfxTimer = 0.0f;
 
@@ -56,6 +60,9 @@ public class SwordController : MonoBehaviour
             audioDeath = audioBank.transform.Find("playerDeath").gameObject.GetComponent<AudioSource>();
         }
         else { Debug.Log("There is no Audio Bank :0"); }
+
+        deadTimer = timeBeforeDead;
+        blurTimer = timeBeforeBlurr;
     }
 
     // Update is called once per frame
@@ -190,10 +197,28 @@ public class SwordController : MonoBehaviour
         {
             deadTimer -= Time.deltaTime;
 
+            if (deadTimer <= timeBeforeDead * 0.5f)
+            {
+                blurTimer -= Time.deltaTime;
+
+                if (blurTimer <= 0.0f)
+                {
+                    
+                    blurTimer = timeBeforeBlurr;
+
+                    //SCREEN SHACKE HERE
+                }
+            }
+
             if (deadTimer <= 0.0f)
             {
-                if (audioDeath != null && audioDeath.isPlaying == false) { audioDeath.Play(); }
-                Debug.Log("You dead");
+                if (audioDeath != null && audioDeath.isPlaying == false) 
+                {
+                    audioDeath.Play();
+                    StaticGlobalVars.ResetStaticVars();
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                }
+                
             }
         }
 
