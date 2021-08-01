@@ -22,13 +22,15 @@ public class SceneManager : MonoBehaviour
     public GameObject sfxGame = null;
     public GameObject camera = null;
     public GameObject boss = null;
+    public GameObject player = null;
     bool lockOpenMenus = true;
     public bool bossDead = false;
+    float bossDeadTimer = 0.0f;
+    public float bossDeadCinematicTime = 3.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -38,6 +40,14 @@ public class SceneManager : MonoBehaviour
         {
             lockOpenMenus = true;
             camera.GetComponent<CameraFollow>().target = boss.transform;
+            bossDeadTimer += Time.deltaTime;
+
+            if (bossDeadCinematicTime < bossDeadTimer) {
+                bossDead = false;
+                camera.GetComponent<CameraFollow>().target = player.transform;
+                bossDeadTimer = 0.0f;
+                SetMenusFalse(mainMenu);
+            }
         }
 
         if (Input.GetKeyUp(KeyCode.Escape) && lockOpenMenus == false)
