@@ -21,9 +21,11 @@ public class SceneManager : MonoBehaviour
     public GameObject musicGame = null;
     public GameObject sfxMenu = null;
     public GameObject sfxGame = null;
-    public GameObject camera = null;
+    public GameObject theCamera = null;
     public GameObject boss = null;
     public GameObject player = null;
+    public GameObject audioBank = null;
+    AudioSource bossDeathAudio = null;
     bool lockOpenMenus = true;
     public bool bossDead = false;
     float bossDeadTimer = 0.0f;
@@ -40,13 +42,13 @@ public class SceneManager : MonoBehaviour
         if (bossDead)
         {
             lockOpenMenus = true;
-            camera.GetComponent<CameraFollow>().target = boss.transform;
+            theCamera.GetComponent<CameraFollow>().target = boss.transform;
             bossDeadTimer += Time.deltaTime;
 
             if (bossDeadCinematicTime < bossDeadTimer)
             {
                 bossDead = false;
-                camera.GetComponent<CameraFollow>().target = player.transform;
+                theCamera.GetComponent<CameraFollow>().target = player.transform;
                 bossDeadTimer = 0.0f;
                 SetMenusFalse(mainMenu);
             }
