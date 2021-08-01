@@ -154,10 +154,19 @@ public class BaseEnemy : MonoBehaviour
         myLife -= 1;
         if (myLife == 0)
         {
-            if (gameObject.tag != "Boss") { Die(); }
+            GameObject manager = GameObject.Find("SceneManager");
+
+            if (gameObject.tag != "Boss")
+            {
+
+                if (manager != null) { manager.GetComponent<SceneManagement>().enemyDead = true; }
+                else { Debug.Log("There is no Scene Manager in your scene. Manage it."); }
+                Die();
+
+            }
+
             else
             {
-                GameObject manager = GameObject.Find("SceneManager");
                 if (manager != null) { manager.GetComponent<SceneManagement>().bossDead = true; }
                 else { Debug.Log("There is no Scene Manager in your scene. Manage it."); }
             }
