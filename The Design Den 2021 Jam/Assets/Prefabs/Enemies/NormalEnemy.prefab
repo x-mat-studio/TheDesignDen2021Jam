@@ -9865,6 +9865,7 @@ MonoBehaviour:
   myPlayer: {fileID: 0}
   deathParticle: {fileID: 293646550}
   rotSpeedMultiplier: 10
+  killTextObj: {fileID: 7168997904463316752, guid: 462fe4b3ebe0dc14cac8a938c7b82bf0, type: 3}
 --- !u!50 &4193386762478484586
 Rigidbody2D:
   serializedVersion: 4

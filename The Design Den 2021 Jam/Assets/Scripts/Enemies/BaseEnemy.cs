@@ -32,6 +32,7 @@ public class BaseEnemy : MonoBehaviour
 
     public EnemyType myType { get; protected set; } = EnemyType.NONE;
 
+    public GameObject killTextObj;
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -128,8 +129,9 @@ public class BaseEnemy : MonoBehaviour
         //kill this mofo
         Debug.Log("I got killed");
         StaticGlobalVars.totalKills++;
-        
-
+        GameObject newGm = Instantiate(killTextObj);
+        newGm.GetComponent<KillTextBehaviour>().myColor = myColor;
+        newGm.transform.position = gameObject.transform.position + new Vector3(-0.15f, 0.2f, 0.0f);
         
         Destroy(gameObject); //keep this as last line of the code.cant destroy it directly or particle system stops doing particles
 

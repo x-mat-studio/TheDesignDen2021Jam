@@ -10,7 +10,7 @@ public class KillTextBehaviour : MonoBehaviour
     [HideInInspector]
     public float currTime = 0.0f;
     [HideInInspector]
-    Color myColor = Color.black;
+    public Color myColor = Color.black;
 
     TextMesh tm = null;
     // Start is called before the first frame update
