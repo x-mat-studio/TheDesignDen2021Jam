@@ -34,6 +34,7 @@ public class SceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 0.000000001f;
     }
 
     // Update is called once per frame
@@ -44,6 +45,9 @@ public class SceneManager : MonoBehaviour
             lockOpenMenus = true;
             theCamera.GetComponent<CameraFollow>().target = boss.transform;
             bossDeadTimer += Time.deltaTime;
+
+            if (bossDeathAudio == null) { bossDeathAudio = audioBank.transform.Find("bossDeath").GetComponent<AudioSource>(); }
+            else { if (bossDeathAudio.isPlaying == false) { bossDeathAudio.Play(); } }
 
             if (bossDeadCinematicTime < bossDeadTimer)
             {
@@ -56,6 +60,7 @@ public class SceneManager : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Escape) && lockOpenMenus == false)
         {
+            Time.timeScale = 0.000000001f;
             inGameMenu.SetActive(true);
         }
     }
@@ -67,6 +72,8 @@ public class SceneManager : MonoBehaviour
             case "Play":
                 SetMenusFalse(null);
                 lockOpenMenus = false;
+
+                Time.timeScale = 1;
                 break;
 
             case "Audio Settings":

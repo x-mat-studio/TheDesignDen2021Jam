@@ -12,12 +12,22 @@ public class BumperScript : MonoBehaviour
     public int rotationBonus = 1;
     public ParticleSystem particleBurst = null;
     private GameObject myPlayer;
+    public GameObject audioBank;
+    AudioSource positiveBumperSound = null;
+    AudioSource negativeBumperSound = null;
 
     // Start is called before the first frame update
     void Start()
     {
         myPlayer = GameObject.FindGameObjectWithTag("Player");
         if (myPlayer == null) Debug.LogError("Bumper did not find player");
+
+        if (audioBank != null)
+        {
+            positiveBumperSound = audioBank.transform.Find("bumperPositive").gameObject.GetComponent<AudioSource>();
+            negativeBumperSound = audioBank.transform.Find("bumperNegative").gameObject.GetComponent<AudioSource>();           
+        }
+        else { Debug.Log("There is no Audio Bank :0"); }
     }
 
     // Update is called once per frame
@@ -32,6 +42,8 @@ public class BumperScript : MonoBehaviour
         if (collision.gameObject == myPlayer) 
         {
             BumperBonk();
+            if (rotationBonus > 0 && positiveBumperSound != null) { positiveBumperSound.Play(); }
+            else if (rotationBonus < 0 && negativeBumperSound != null) { negativeBumperSound.Play(); }
         }
     }
 
