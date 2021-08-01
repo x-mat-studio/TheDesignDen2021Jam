@@ -45,6 +45,9 @@ public class SceneManager : MonoBehaviour
             theCamera.GetComponent<CameraFollow>().target = boss.transform;
             bossDeadTimer += Time.deltaTime;
 
+            if (bossDeathAudio == null) { bossDeathAudio = audioBank.transform.Find("bossDeath").GetComponent<AudioSource>(); }
+            else { if (bossDeathAudio.isPlaying == false) { bossDeathAudio.Play(); } }
+
             if (bossDeadCinematicTime < bossDeadTimer)
             {
                 bossDead = false;
