@@ -36,6 +36,12 @@ public class BloodSplat : MonoBehaviour
 
     public void CreateSplat(Vector3 position, float rotation, Vector3 color)
     {
+        if (audioSplat1 != null && audioSplat2 != null)
+        {
+            if (Random.Range(1.0f, 2.0f) > 1.5) { audioSplat1.Play(); }
+            else { audioSplat2.Play(); }
+        }
+
         if (bloodSplatPrefab != null)
         {
             GameObject splat = Instantiate(bloodSplatPrefab);
