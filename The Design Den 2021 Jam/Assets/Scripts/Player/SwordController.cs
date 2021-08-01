@@ -5,6 +5,9 @@ using UnityEngine;
 public class SwordController : MonoBehaviour
 {
     public GameObject sword = null;
+    public GameObject audioBank = null;
+    private AudioSource audioBuzz1 = null;
+    private AudioSource audioBuzz2 = null;
 
     private int loops = 0;  //Negative means counter clock wise movement
     private int quadrantChanges = 0;
@@ -30,12 +33,23 @@ public class SwordController : MonoBehaviour
     public float timeBeforeDead = 10.0f;
     public float deadTimer = 0.0f;
 
+    private float sfxTimer = 0.0f;
 
     //RPM
     float maxRPM = 0.0f; //maxRPM
     public float rpm = 0.0f;
     [Range(0.01f, 0.99f)]
     public float rpmLerpSpeed = 0.5f;//between 0.01 and 1
+
+    private void Start()
+    {
+        if (audioBank != null)
+        {
+            audioBuzz1 = audioBank.transform.Find("weaponBuzz1").gameObject.GetComponent<AudioSource>();
+            audioBuzz2 = audioBank.transform.Find("weaponBuzz2").gameObject.GetComponent<AudioSource>();            
+        }
+        else { Debug.Log("There is no Audio Bank :0"); }
+    }
 
     // Update is called once per frame
     void Update()
@@ -181,6 +195,13 @@ public class SwordController : MonoBehaviour
                 RecalculateRPM();
                 beforeStopTimer = timeReduceSpeed;
             }
+        }
+
+        sfxTimer++;
+        if (sfxTimer > (Random.Range(1.0f, 3.0f) - (rpmLerpSpeed * 1.5))) {
+            sfxTimer = 0.0f;
+            if (Random.Range(1.0f, 2.0f) > 1.5f) { audioBuzz1.Play(); }
+            else { audioBuzz2.Play(); }
         }
     }
 
