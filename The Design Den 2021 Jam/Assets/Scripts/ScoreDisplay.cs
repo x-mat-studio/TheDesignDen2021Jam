@@ -11,8 +11,6 @@ public class ScoreDisplay : MonoBehaviour
     public Text timeText;
     public Text highScoreText;
 
-    public SwordController playerSwordController = null;
-
     public float animationDuration = 5.0f;
     float animationCurrent = 0.0f;
 
@@ -32,7 +30,7 @@ public class ScoreDisplay : MonoBehaviour
     void Start()
     {
         killCountFinal = StaticGlobalVars.totalKills;
-        //maxRPMFinal //TODO
+        maxRPMFinal = StaticGlobalVars.maxRPMReached;
         timeFinal = StaticGlobalVars.secondsToKillBoss;
         highScoreFinal = killCountFinal + maxRPMFinal + timeFinal;
 
