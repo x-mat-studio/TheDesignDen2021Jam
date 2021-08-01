@@ -19561,7 +19561,9 @@ MonoBehaviour:
   mySprite: {fileID: 5501616520999849987}
   myOutlineSprite: {fileID: 5501616522175277648}
   myPlayer: {fileID: 0}
+  deathParticle: {fileID: 34814188268847004, guid: 2c0997e9f7c1f3646b1f74d8a58209fa, type: 3}
   rotSpeedMultiplier: 1
+  killTextObj: {fileID: 0}
   myBumpForce: 2000
   EnemySlow: {fileID: 7854461315652930426, guid: bdc5fbc222012f244af352f1a95772b6, type: 3}
   EnemyNormal: {fileID: 2217095555907616817, guid: de17376349d13264bbec6e24b6a82a3c, type: 3}
