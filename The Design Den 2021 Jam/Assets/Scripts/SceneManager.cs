@@ -14,6 +14,12 @@ public class SceneManager : MonoBehaviour
     public GameObject inGameCreditsMenu = null;
     public GameObject canvas = null;
     public AudioMixer mixer = null;
+    public GameObject globalMenu = null;
+    public GameObject globalGame = null;
+    public GameObject musicMenu = null;
+    public GameObject musicGame = null;
+    public GameObject sfxMenu = null;
+    public GameObject sfxGame = null;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +54,10 @@ public class SceneManager : MonoBehaviour
 
             case "InGameCredits":
                 SetMenusFalse(inGameCreditsMenu);
+                break;
+
+            case "InGameAudioSettings":
+                SetMenusFalse(inGameAudioMenu);
                 break;
 
             case "Return":
@@ -125,14 +135,20 @@ public class SceneManager : MonoBehaviour
         {
             case "Master":
                 mixer.SetFloat("masterVolume", Mathf.Log10(gObject.GetComponent<Slider>().value) * 20);
+                globalMenu.GetComponent<Slider>().value = gObject.GetComponent<Slider>().value;
+                globalGame.GetComponent<Slider>().value = gObject.GetComponent<Slider>().value;
                 break;
 
             case "Music":
                 mixer.SetFloat("musicVolume", Mathf.Log10(gObject.GetComponent<Slider>().value) * 20);
+                musicMenu.GetComponent<Slider>().value = gObject.GetComponent<Slider>().value;
+                musicGame.GetComponent<Slider>().value = gObject.GetComponent<Slider>().value;
                 break;
 
             case "SFX":
                 mixer.SetFloat("sfxVolume", Mathf.Log10(gObject.GetComponent<Slider>().value) * 20);
+                sfxMenu.GetComponent<Slider>().value = gObject.GetComponent<Slider>().value;
+                sfxGame.GetComponent<Slider>().value = gObject.GetComponent<Slider>().value;
                 break;
         }
 
