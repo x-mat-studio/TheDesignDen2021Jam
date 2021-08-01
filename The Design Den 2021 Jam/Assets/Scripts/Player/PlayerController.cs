@@ -42,7 +42,15 @@ public class PlayerController : MonoBehaviour
 
         if (newDir != Vector2.zero)
         {
-            float newSpeed = baseSpeed + mySword.rpm*rpmAddValue;
+            float rpm = mySword.rpm;
+
+            float newSpeed = 0.0f;
+            if (rpm >= 0.0f)
+                newSpeed = baseSpeed + rpm * rpmAddValue;
+
+            else
+                newSpeed = baseSpeed - rpm * rpmAddValue;
+
             vel += newDir * newSpeed * Time.deltaTime*(1.0f-drift);
         }
 
