@@ -87,6 +87,7 @@ public class SceneManagement : MonoBehaviour
             {
                 enemyDeadTimer = 0.0f;
                 mixer.FindSnapshot("Snapshot").TransitionTo(0.0f);
+                enemyDead = false;
             }
         }
 
