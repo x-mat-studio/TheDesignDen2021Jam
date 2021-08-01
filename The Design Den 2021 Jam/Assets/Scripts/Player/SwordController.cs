@@ -88,6 +88,7 @@ public class SwordController : MonoBehaviour
         if (rpm > maxRPMReached)
         {
             maxRPMReached = rpm;
+            StaticGlobalVars.maxRPMReached = maxRPMReached;
         }
 
         StaticGlobalVars.revolutionsPerMinuteDisplay = rpm;
