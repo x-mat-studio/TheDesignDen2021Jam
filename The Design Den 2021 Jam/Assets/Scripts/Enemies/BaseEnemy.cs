@@ -119,7 +119,8 @@ public class BaseEnemy : MonoBehaviour
 
         if (deathParticle != null)
         {
-            Instantiate(deathParticle);
+            GameObject aux = Instantiate(deathParticle);
+            aux.transform.position = transform.position;
         }
 
         //Enemy dies means spin goes brbrbr
