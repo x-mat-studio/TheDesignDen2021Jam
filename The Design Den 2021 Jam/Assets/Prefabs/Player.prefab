@@ -19367,6 +19367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sword: {fileID: 3116463194937526866}
+  audioBank: {fileID: 0}
   timeBeforeStopping: 1
   timeReduceSpeed: 0.5
   timeBeforeDead: 10
@@ -19449,11 +19450,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positiveToNegativeBumperRatio: 50
-  numOfBumpersToSpawnAtOnce: 2
-  secondsBetweenWaves: 60
-  spawnRadiusFromPlayer: 10
-  bumperPlus: {fileID: 0}
-  bumperMinus: {fileID: 0}
+  numOfBumpersToSpawnAtOnce: 3
+  secondsBetweenWaves: 45
+  spawnRadiusFromPlayer: 30
+  maxBumpersAllowed: 10
+  bumperPlus: {fileID: 1741383411475171880, guid: 623058b2e8959fc44b7eebb556feecb5, type: 3}
+  bumperMinus: {fileID: 3790093092007263811, guid: f05494ac3317b2c44bc2ed9be626e5eb, type: 3}
 --- !u!1 &3116463196562534900
 GameObject:
   m_ObjectHideFlags: 0
@@ -19599,6 +19601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8eea15d9f77354d9a32bf9be8d23b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioBank: {fileID: 0}
 --- !u!1 &3116463196569805603
 GameObject:
   m_ObjectHideFlags: 0
