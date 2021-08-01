@@ -12,6 +12,7 @@ public class BaseEnemy : MonoBehaviour
     public SpriteRenderer mySprite = null;
     public SpriteRenderer myOutlineSprite = null;
     public PlayerController myPlayer = null;
+    AudioSource entityHit = null;
     bool thereIsPlayer = true;
     public enum EnemyType
     {
@@ -32,6 +33,10 @@ public class BaseEnemy : MonoBehaviour
             thereIsPlayer = false;
             Debug.LogError("NO PLAYER ASSIGNED TO THIS ENEMY");
         }
+
+        GameObject audioBank = GameObject.FindWithTag("AudioMixer");
+        entityHit = audioBank.transform.Find("entityHit").GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -80,6 +85,8 @@ public class BaseEnemy : MonoBehaviour
         if (col.gameObject == myPlayer.gameObject)
         {
             TakeDamage();
+            if (entityHit != null) { entityHit.Play(); }
+            else { Debug.Log("Audio Bank isn't in the scene!!"); }
         }
     }
 
