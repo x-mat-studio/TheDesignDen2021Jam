@@ -89,7 +89,7 @@ public class BaseEnemy : MonoBehaviour
             angle = -angle;
 
         BloodSplat.bloodSplatHolder.GetComponent<BloodSplat>().CreateSplat(gameObject.transform.position, angle, 
-                                            new Vector3(myOutlineColor.r, myOutlineColor.g, myOutlineColor.b));
+                                            new Vector3(myColor.r, myColor.g, myColor.b));
         //Sound
         Debug.Log("I got killed");
         Destroy(gameObject); //keep this as last line of the code   
