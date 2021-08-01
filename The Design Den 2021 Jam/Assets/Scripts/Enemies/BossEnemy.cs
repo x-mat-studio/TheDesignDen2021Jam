@@ -18,6 +18,8 @@ public class BossEnemy : BaseEnemy
     public int maxEnemiesSpawned = 0;
     public float distanceOfAction = 10;
 
+    public GameObject HitParticle = null;
+
     [Range(0.0f,100.0f)]
     public float radOfSpawnMin = 15.0f;
     [Range(0.0f, 100.0f)]
@@ -128,6 +130,17 @@ public class BossEnemy : BaseEnemy
         PushPlayer();
 
         base.TakeDamage();
+
+        if (myLife == 0 && base.deathParticle != null)
+        {
+            GameObject aux = Instantiate(base.deathParticle);
+            aux.transform.position = transform.position;
+        }
+        else if (HitParticle != null) 
+        {
+            GameObject aux = Instantiate(HitParticle);
+            aux.transform.position = transform.position;
+        }
     }
 }
 
