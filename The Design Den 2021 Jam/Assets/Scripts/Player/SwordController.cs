@@ -11,7 +11,6 @@ public class SwordController : MonoBehaviour
     private AudioSource audioCircle = null;
 
     private int loops = 0;  //Negative means counter clock wise movement
-    private int loopsAux = 0;
     private int quadrantChanges = 0;
 
     enum QUADRANT : int
@@ -57,8 +56,6 @@ public class SwordController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(loopsAux != loops) { audioCircle.Play(); }
-        loopsAux = loops;
 
         CalculateCurrentQuadrant();
         UpdateSpinState();
@@ -147,6 +144,7 @@ public class SwordController : MonoBehaviour
         if (quadrantChanges == 4)
         {
             loops++;
+            audioCircle.Play();
             quadrantChanges = 0;
             RecalculateRPM();
 
@@ -156,6 +154,7 @@ public class SwordController : MonoBehaviour
         else if (quadrantChanges == -4)
         {
             loops--;
+            audioCircle.Play();
             quadrantChanges = 0;
             RecalculateRPM();
 
