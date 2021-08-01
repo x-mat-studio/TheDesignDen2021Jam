@@ -8,8 +8,10 @@ public class SwordController : MonoBehaviour
     public GameObject audioBank = null;
     private AudioSource audioBuzz1 = null;
     private AudioSource audioBuzz2 = null;
+    private AudioSource audioCircle = null;
 
     private int loops = 0;  //Negative means counter clock wise movement
+    private int loopsAux = 0;
     private int quadrantChanges = 0;
 
     enum QUADRANT : int
@@ -46,7 +48,8 @@ public class SwordController : MonoBehaviour
         if (audioBank != null)
         {
             audioBuzz1 = audioBank.transform.Find("weaponBuzz1").gameObject.GetComponent<AudioSource>();
-            audioBuzz2 = audioBank.transform.Find("weaponBuzz2").gameObject.GetComponent<AudioSource>();            
+            audioBuzz2 = audioBank.transform.Find("weaponBuzz2").gameObject.GetComponent<AudioSource>();
+            audioCircle = audioBank.transform.Find("circleCompleted").gameObject.GetComponent<AudioSource>();
         }
         else { Debug.Log("There is no Audio Bank :0"); }
     }
@@ -54,6 +57,9 @@ public class SwordController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(loopsAux != loops) { audioCircle.Play(); }
+        loopsAux = loops;
+
         CalculateCurrentQuadrant();
         UpdateSpinState();
 
