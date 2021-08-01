@@ -21,21 +21,16 @@ public class BloodSplat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) == true)
-        {
-            CreateSplat(new Vector2(Random.Range(-6.0f, 6.0f), Random.Range(-6.0f, 6.0f)), Random.Range(0.0f, 360.0f), new Vector3(1.0f, 0.0f, 0.3f));
-        }
     }
 
-    public void CreateSplat(Vector2 position, float rotation, Vector3 color)
+    public void CreateSplat(Vector3 position, float rotation, Vector3 color)
     {
         if (bloodSplatPrefab != null)
         {
             GameObject splat = Instantiate(bloodSplatPrefab);
-            splat.transform.SetParent(this.gameObject.transform, true);
 
-            bloodSplatPrefab.transform.position = new Vector3(position.x, position.y, 1.0f);
-            bloodSplatPrefab.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation);
+            splat.transform.position = position;
+            splat.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation);
 
             int randomIndex = Random.Range(0, sprites.Length);
             bloodSplatPrefab.GetComponent<SpriteRenderer>().sprite = sprites[randomIndex];
