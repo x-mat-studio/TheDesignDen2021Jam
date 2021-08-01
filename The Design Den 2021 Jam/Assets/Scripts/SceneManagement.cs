@@ -14,6 +14,7 @@ public class SceneManagement : MonoBehaviour
     public GameObject inGameMenu = null;
     public GameObject inGameAudioMenu = null;
     public GameObject inGameCreditsMenu = null;
+    public GameObject winMenu = null;
     public GameObject canvas = null;
     public AudioMixer mixer = null;
     public GameObject globalMenu = null;
@@ -36,6 +37,12 @@ public class SceneManagement : MonoBehaviour
     public bool enemyDead = false;
     float enemyDeadTimer = 0.0f;
     public float enemyDeaSnapshotTime = 0.5f;
+
+    //******************* Win screen variables
+
+    bool returnToMenu = false;
+
+    //*******************
 
     // Start is called before the first frame update
     void Start()
@@ -70,15 +77,7 @@ public class SceneManagement : MonoBehaviour
 
             if (bossDeadCinematicTime < bossDeadTimer)
             {
-                bossDead = false;
-                firstFrameKill = true;
-                theCamera.GetComponent<CameraFollow>().target = player.transform;
-                bossDeadTimer = 0.0f;
-                timeToWin = 0.0f;
-                mixer.FindSnapshot("Snapshot").TransitionTo(0.0f);
-
-                StaticGlobalVars.ResetStaticVars();
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                ShowWinScreen();
             }
         }
 
@@ -99,6 +98,30 @@ public class SceneManagement : MonoBehaviour
             Time.timeScale = 0.000000001f;
             inGameMenu.SetActive(true);
         }
+    }
+
+    private void ShowWinScreen()
+    {
+
+        winMenu.SetActive(true);
+
+        if (returnToMenu) {
+
+            bossDead = false;
+            firstFrameKill = true;
+            returnToMenu = false;
+            theCamera.GetComponent<CameraFollow>().target = player.transform;
+            bossDeadTimer = 0.0f;
+            timeToWin = 0.0f;
+            mixer.FindSnapshot("Snapshot").TransitionTo(0.0f);
+            SetMenusFalse(mainMenu);
+            Time.timeScale = 0.000000001f;
+
+            StaticGlobalVars.ResetStaticVars();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        }
+
     }
 
     public void OnClick(GameObject gObject)
@@ -135,6 +158,11 @@ public class SceneManagement : MonoBehaviour
 
             case "ReturnToInGameMenu":
                 SetMenusFalse(inGameMenu);
+                break;
+
+            case "ReturnFromWinScene":
+                SetMenusFalse(mainMenu);
+                returnToMenu = true;
                 break;
 
             case "Quit":
@@ -206,6 +234,9 @@ public class SceneManagement : MonoBehaviour
 
         if (inGameCreditsMenu != trueObject) { inGameCreditsMenu.SetActive(false); }
         else { inGameCreditsMenu.SetActive(true); }
+
+        if (winMenu != trueObject) { winMenu.SetActive(false); }
+        else { winMenu.SetActive(true); }
 
     }
 
