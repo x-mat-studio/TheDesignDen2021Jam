@@ -20,6 +20,8 @@ public class BossEnemy : BaseEnemy
 
     public GameObject HitParticle = null;
 
+    public GameObject[] lifes;
+
     [Range(0.0f,100.0f)]
     public float radOfSpawnMin = 15.0f;
     [Range(0.0f, 100.0f)]
@@ -60,6 +62,20 @@ public class BossEnemy : BaseEnemy
             counterSpawn = 0;
             SpawnEnemy();
         }
+
+        if (myLife == 2)
+        {
+            lifes[2].SetActive(false);
+        }
+        else if(myLife == 1)
+        {
+            lifes[1].SetActive(false);
+        }
+        else if( myLife == 0)
+        {
+            lifes[0].SetActive(false);
+        }
+
     }
     private void SpawnEnemy()
     {
