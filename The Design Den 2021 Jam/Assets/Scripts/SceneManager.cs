@@ -4,11 +4,14 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class IngameMenu : MonoBehaviour
+public class SceneManager : MonoBehaviour
 {
     public GameObject mainMenu = null;
     public GameObject audioMenu = null;
     public GameObject creditsMenu = null;
+    public GameObject inGameMenu = null;
+    public GameObject inGameAudioMenu = null;
+    public GameObject inGameCreditsMenu = null;
     public GameObject canvas = null;
     public AudioMixer mixer = null;
 
@@ -21,7 +24,10 @@ public class IngameMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyUp(KeyCode.Escape) && mainMenu.activeInHierarchy == false && audioMenu.activeInHierarchy == false && creditsMenu.activeInHierarchy == false)
+        {
+            inGameMenu.SetActive(true);
+        }
     }
 
     public void OnClick(GameObject gObject)
@@ -29,27 +35,28 @@ public class IngameMenu : MonoBehaviour
         switch (gObject.name)
         {
             case "Play":
-                mainMenu.SetActive(false);
-                audioMenu.SetActive(false);
-                creditsMenu.SetActive(false);
+                SetMenusFalse(null);
                 break;
 
             case "Audio Settings":
-                mainMenu.SetActive(false);
-                audioMenu.SetActive(true);
-                creditsMenu.SetActive(false);
+                SetMenusFalse(audioMenu);
                 break;
 
             case "Credits":
-                mainMenu.SetActive(false);
-                audioMenu.SetActive(false);
-                creditsMenu.SetActive(true);
+                SetMenusFalse(creditsMenu);
+                break;
+
+            case "InGameCredits":
+                SetMenusFalse(inGameCreditsMenu);
                 break;
 
             case "Return":
-                mainMenu.SetActive(true);
-                audioMenu.SetActive(false);
-                creditsMenu.SetActive(false);
+            case "ReturnToMainMenu":
+                SetMenusFalse(mainMenu);
+                break;
+
+            case "ReturnToInGameMenu":
+                SetMenusFalse(inGameMenu);
                 break;
 
             case "Quit":
@@ -86,6 +93,29 @@ public class IngameMenu : MonoBehaviour
         }
 
         canvas.GetComponent<AudioSource>().Play();
+
+    }
+
+    private void SetMenusFalse(GameObject trueObject)
+    {
+
+        if (mainMenu != trueObject) { mainMenu.SetActive(false); }
+        else { mainMenu.SetActive(true); }
+
+        if (audioMenu != trueObject) { audioMenu.SetActive(false); }
+        else { audioMenu.SetActive(true); }
+
+        if (creditsMenu != trueObject) { creditsMenu.SetActive(false); }
+        else { creditsMenu.SetActive(true); }
+
+        if (inGameMenu != trueObject) { inGameMenu.SetActive(false); }
+        else { inGameMenu.SetActive(true); }
+
+        if (inGameAudioMenu != trueObject) { inGameAudioMenu.SetActive(false); }
+        else { inGameAudioMenu.SetActive(true); }
+
+        if (inGameCreditsMenu != trueObject) { inGameCreditsMenu.SetActive(false); }
+        else { inGameCreditsMenu.SetActive(true); }
 
     }
 
