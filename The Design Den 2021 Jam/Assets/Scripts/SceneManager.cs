@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class SceneManager : MonoBehaviour
 {
     public GameObject mainMenu = null;
+    public GameObject mainMenuTitle = null;
     public GameObject audioMenu = null;
     public GameObject creditsMenu = null;
     public GameObject inGameMenu = null;
@@ -42,7 +43,8 @@ public class SceneManager : MonoBehaviour
             camera.GetComponent<CameraFollow>().target = boss.transform;
             bossDeadTimer += Time.deltaTime;
 
-            if (bossDeadCinematicTime < bossDeadTimer) {
+            if (bossDeadCinematicTime < bossDeadTimer)
+            {
                 bossDead = false;
                 camera.GetComponent<CameraFollow>().target = player.transform;
                 bossDeadTimer = 0.0f;
@@ -130,9 +132,18 @@ public class SceneManager : MonoBehaviour
     private void SetMenusFalse(GameObject trueObject)
     {
 
-        if (mainMenu != trueObject) { mainMenu.SetActive(false); }
-        else {
+        if (mainMenu != trueObject)
+        {
+            mainMenu.SetActive(false);
+            if (mainMenuTitle != null)
+                mainMenuTitle.SetActive(false);
+        }
+        else
+        {
             mainMenu.SetActive(true);
+            if (mainMenuTitle != null)
+                mainMenuTitle.SetActive(true);
+
             lockOpenMenus = true;
         }
 
