@@ -33,21 +33,11 @@ public class BossEnemy : BaseEnemy
         if (EnemyFast == null) { Debug.Log("Fast enemy still unasigned to boss"); }
 
         GameObject audioBank = GameObject.FindWithTag("AudioMixer");
-        enemySpawnSound = audioBank.transform.Find("enemySpawn").GetComponent<AudioSource>();
+        if (audioBank != null)
+            enemySpawnSound = audioBank.transform.Find("enemySpawn").GetComponent<AudioSource>();
 
     }
 
-    protected override void OnCollisionEnter2D(Collision2D col)
-    {
-        if (myPlayer == null)
-        {
-            Debug.LogError("ERROR: BOSS HAS NO PLAYER ASSIGNED");
-            return;
-        }
-
-        PushPlayer();
-        base.OnCollisionEnter2D(col); //keep this line as last line on function. Boss entity can get destroyed here.
-    }
     protected override void Update()
     {
         base.Update();
@@ -122,5 +112,11 @@ public class BossEnemy : BaseEnemy
         return spawnDir*scale;
     }
 
+    public override void TakeDamage()
+    {
+        PushPlayer();
+
+        base.TakeDamage();
+    }
 }
 

@@ -148,7 +148,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3116463195778989026, guid: 65a036ab7b1bb744fa6fa43de7d8c2f1, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3116463195778989026, guid: 65a036ab7b1bb744fa6fa43de7d8c2f1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -194,10 +194,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3116463196562534900, guid: 65a036ab7b1bb744fa6fa43de7d8c2f1, type: 3}
-      propertyPath: m_TagString
-      value: Sword
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65a036ab7b1bb744fa6fa43de7d8c2f1, type: 3}
 --- !u!1001 &1185687462
@@ -217,7 +213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7854461315652930431, guid: bdc5fbc222012f244af352f1a95772b6, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7854461315652930431, guid: bdc5fbc222012f244af352f1a95772b6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -261,6 +257,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdc5fbc222012f244af352f1a95772b6, type: 3}
+--- !u!1001 &1432883100
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6083719707123500883, guid: 87e1443c8b5e91f4a89dd42f1b31ce0d, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6083719707123500883, guid: 87e1443c8b5e91f4a89dd42f1b31ce0d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -18.764442
+      objectReference: {fileID: 0}
+    - target: {fileID: 6083719707123500883, guid: 87e1443c8b5e91f4a89dd42f1b31ce0d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.51440907
+      objectReference: {fileID: 0}
+    - target: {fileID: 6083719707123500883, guid: 87e1443c8b5e91f4a89dd42f1b31ce0d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6083719707123500883, guid: 87e1443c8b5e91f4a89dd42f1b31ce0d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6083719707123500883, guid: 87e1443c8b5e91f4a89dd42f1b31ce0d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6083719707123500883, guid: 87e1443c8b5e91f4a89dd42f1b31ce0d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6083719707123500883, guid: 87e1443c8b5e91f4a89dd42f1b31ce0d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6083719707123500883, guid: 87e1443c8b5e91f4a89dd42f1b31ce0d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6083719707123500883, guid: 87e1443c8b5e91f4a89dd42f1b31ce0d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6083719707123500883, guid: 87e1443c8b5e91f4a89dd42f1b31ce0d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6083719707123500886, guid: 87e1443c8b5e91f4a89dd42f1b31ce0d, type: 3}
+      propertyPath: m_Name
+      value: BossEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6813474000027057039, guid: 87e1443c8b5e91f4a89dd42f1b31ce0d, type: 3}
+      propertyPath: myPlayer
+      value: 
+      objectReference: {fileID: 128970042}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 87e1443c8b5e91f4a89dd42f1b31ce0d, type: 3}
 --- !u!1 &1487019061
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,58 +422,6 @@ MonoBehaviour:
   speedToMaxScale: 2
   minCamScale: 13
   maxCamScale: 13
---- !u!1 &2115811638 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3116463196562534900, guid: 65a036ab7b1bb744fa6fa43de7d8c2f1, type: 3}
-  m_PrefabInstance: {fileID: 675794571}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &2115811641
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2115811638}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.2}
-  m_EdgeRadius: 0
---- !u!50 &2115811642
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2115811638}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1001 &8754915987494047986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -426,7 +431,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8754915988800464232, guid: 7ce977f0473d4be48a671fc64145ee2a, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8754915988800464232, guid: 7ce977f0473d4be48a671fc64145ee2a, type: 3}
       propertyPath: m_LocalPosition.x

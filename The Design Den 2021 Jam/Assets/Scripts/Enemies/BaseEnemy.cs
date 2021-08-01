@@ -5,7 +5,7 @@ using UnityEngine;
 public class BaseEnemy : MonoBehaviour
 {
     public float mySpeed = 0;
-  
+
     public int myLife = 1;
     Vector2 myDirection = Vector2.zero;
     public Color myColor = Color.black;
@@ -16,7 +16,7 @@ public class BaseEnemy : MonoBehaviour
     AudioSource entityHit = null;
     bool thereIsPlayer = true;
 
-    [Range(0.0f,100.0f)]
+    [Range(0.0f, 100.0f)]
     public float rotSpeedMultiplier = 1.0f;
 
     Vector2 lastFramePos = Vector2.zero;
@@ -41,7 +41,9 @@ public class BaseEnemy : MonoBehaviour
         }
 
         GameObject audioBank = GameObject.FindWithTag("AudioMixer");
-        entityHit = audioBank.transform.Find("entityHit").GetComponent<AudioSource>();
+
+        if (audioBank != null)
+            entityHit = audioBank.transform.Find("entityHit").GetComponent<AudioSource>();
 
     }
 
@@ -80,7 +82,7 @@ public class BaseEnemy : MonoBehaviour
 
     void Rotate()
     {
-        float speed = new Vector2(transform.position.x - lastFramePos.x, transform.position.y - lastFramePos.y).magnitude/Time.deltaTime;
+        float speed = new Vector2(transform.position.x - lastFramePos.x, transform.position.y - lastFramePos.y).magnitude / Time.deltaTime;
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z - speed * rotSpeedMultiplier * Time.deltaTime);
     }
 
@@ -89,26 +91,22 @@ public class BaseEnemy : MonoBehaviour
         if (!thereIsPlayer)
             return;
 
-        myDirection = new Vector2(transform.position.x- myPlayer.transform.position.x, transform.position.y - myPlayer.transform.position.y);
+        myDirection = new Vector2(transform.position.x - myPlayer.transform.position.x, transform.position.y - myPlayer.transform.position.y);
         myDirection.Normalize();
         myDirection *= (mySpeed * Time.deltaTime);
-        transform.position += new Vector3(myDirection.x,myDirection.y,0.0f);
+        transform.position += new Vector3(myDirection.x, myDirection.y, 0.0f);
     }
 
-    protected virtual void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject == myPlayer.gameObject)
-        {
-            TakeDamage();
-            if (entityHit != null) { entityHit.Play(); }
-            else { Debug.Log("Audio Bank isn't in the scene!!"); }
-        }
-    }
 
-    
 
-    void TakeDamage()
+    public virtual void TakeDamage()
     {
+        if (entityHit != null)
+            entityHit.Play();
+
+        else
+            Debug.Log("Audio Bank isn't in the scene!!");
+
         myLife -= 1;
         if (myLife == 0)
         {

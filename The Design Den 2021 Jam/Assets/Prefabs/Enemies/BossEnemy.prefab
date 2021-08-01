@@ -4970,6 +4970,7 @@ MonoBehaviour:
   mySprite: {fileID: 6083719707123500884}
   myOutlineSprite: {fileID: 6083719708296838407}
   myPlayer: {fileID: 0}
+  rotSpeedMultiplier: 1
   myBumpForce: 2000
   EnemySlow: {fileID: 7854461315652930426, guid: bdc5fbc222012f244af352f1a95772b6, type: 3}
   EnemyNormal: {fileID: 2217095555907616817, guid: de17376349d13264bbec6e24b6a82a3c, type: 3}
@@ -4978,7 +4979,8 @@ MonoBehaviour:
   rate100SpawnNormal: 70
   rate100SpawnSlow: 100
   rate100SpawnFast: 30
-  radOfSpawn: 7
+  radOfSpawnMin: 15
+  radOfSpawnMax: 20
 --- !u!61 &7505904333644202717
 BoxCollider2D:
   m_ObjectHideFlags: 0
