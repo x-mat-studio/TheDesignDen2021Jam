@@ -62,7 +62,9 @@ public class CameraFollow : MonoBehaviour
 
         if (cameraShakeTimer > 0.0f)
         {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x + Random.Range(-2, 2), gameObject.transform.position.y + Random.Range(-2, 2), 0.0f);
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x + Random.Range(-1, 1), gameObject.transform.position.y + Random.Range(-1, 1), gameObject.transform.position.z);
+
+            cameraShakeTimer -= Time.deltaTime;
         }
     }
 

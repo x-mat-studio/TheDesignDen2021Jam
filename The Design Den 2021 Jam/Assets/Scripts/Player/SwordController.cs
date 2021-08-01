@@ -244,9 +244,13 @@ public class SwordController : MonoBehaviour
         sfxTimer++;
         if (sfxTimer > (Random.Range(1.0f, 3.0f) - (rpmLerpSpeed * 1.5)))
         {
-            sfxTimer = 0.0f;
-            if (Random.Range(1.0f, 2.0f) > 1.5f) { audioBuzz1.Play(); }
-            else { audioBuzz2.Play(); }
+            if (audioBuzz2 != null)
+            {
+                sfxTimer = 0.0f;
+                if (Random.Range(1.0f, 2.0f) > 1.5f) { audioBuzz1.Play(); }
+                else { audioBuzz2.Play(); }
+
+            }
         }
     }
 
