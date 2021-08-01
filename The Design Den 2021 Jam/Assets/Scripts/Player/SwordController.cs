@@ -92,6 +92,7 @@ public class SwordController : MonoBehaviour
             maxRPMReached = rpm;
         }
 
+        StaticGlobalVars.revolutionsPerMinuteDisplay = rpm;
     }
 
     private void CalculateCurrentQuadrant()
