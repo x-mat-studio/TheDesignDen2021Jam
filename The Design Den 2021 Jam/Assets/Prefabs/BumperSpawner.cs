@@ -12,6 +12,8 @@ public class BumperSpawner : MonoBehaviour
     public float secondsBetweenWaves = 60.0f;
     public float spawnRadiusFromPlayer = 10.0f;
 
+    public int maxBumpersAllowed = 10;
+
     float secondsSinceLastWave = 0.0f;
 
 
@@ -23,12 +25,13 @@ public class BumperSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        bumpers = new List<GameObject>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        secondsSinceLastWave += Time.deltaTime;
         if (secondsSinceLastWave >= secondsBetweenWaves)
         {
             secondsSinceLastWave = 0.0f;
@@ -45,6 +48,7 @@ public class BumperSpawner : MonoBehaviour
             inst = InstantiateWithPercentage();
             Vector2 newPosOffset = Random.insideUnitCircle.normalized * spawnRadiusFromPlayer;
             inst.transform.position = transform.position + new Vector3(newPosOffset.x, newPosOffset.y, 0.0f);
+            bumpers.Add(inst);
         }
     }
 
@@ -59,11 +63,20 @@ public class BumperSpawner : MonoBehaviour
     }
     void DeleteBumpers()
     {
-        SortBumpersByDist();
-
-        for (int i = 0; i < numOfBumpersToSpawnAtOnce; ++i)
+        if (bumpers.Count + numOfBumpersToSpawnAtOnce >= maxBumpersAllowed)
         {
-            bumpers.RemoveAt(0);
+
+            int toDelete = bumpers.Count + numOfBumpersToSpawnAtOnce - maxBumpersAllowed;
+            SortBumpersByDist();
+
+
+            GameObject objToDelete;
+            for (int i = 0; i < toDelete; ++i)
+            {
+                objToDelete = bumpers[0];
+                bumpers.RemoveAt(0);
+                Destroy(objToDelete);
+            }
         }
     }
 
