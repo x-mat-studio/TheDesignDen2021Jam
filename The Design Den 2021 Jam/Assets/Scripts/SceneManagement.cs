@@ -12,6 +12,7 @@ public class SceneManagement : MonoBehaviour
     public GameObject mainMenuTitle = null;
     public GameObject audioMenu = null;
     public GameObject creditsMenu = null;
+    public GameObject hudMenu = null;
     public GameObject inGameMenu = null;
     public GameObject inGameAudioMenu = null;
     public GameObject inGameCreditsMenu = null;
@@ -54,7 +55,7 @@ public class SceneManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("TOTAL KILLS: "+StaticGlobalVars.totalKills.ToString());
+        Debug.Log("TOTAL KILLS: " + StaticGlobalVars.totalKills.ToString());
         StaticGlobalVars.secondsToKillBoss = timeToWin;
 
         if (!lockOpenMenus) { timeToWin += Time.deltaTime; }
@@ -95,7 +96,8 @@ public class SceneManagement : MonoBehaviour
 
         winMenu.SetActive(true);
 
-        if (returnToMenu) {
+        if (returnToMenu)
+        {
 
             bossDead = false;
             firstFrameKill = true;
@@ -119,7 +121,7 @@ public class SceneManagement : MonoBehaviour
         switch (gObject.name)
         {
             case "Play":
-                SetMenusFalse(null);
+                SetMenusFalse(hudMenu);
                 lockOpenMenus = false;
 
                 Time.timeScale = 1;
@@ -212,11 +214,25 @@ public class SceneManagement : MonoBehaviour
             lockOpenMenus = true;
         }
 
-        if (audioMenu != trueObject) { audioMenu.SetActive(false); }
-        else { audioMenu.SetActive(true); }
+        if (audioMenu != trueObject)
+        {
+            audioMenu.SetActive(false);
+        }
+        else
+        {
+            audioMenu.SetActive(true);
+            titleCanvas.SetActive(true);
+        }
 
-        if (creditsMenu != trueObject) { creditsMenu.SetActive(false); }
-        else { creditsMenu.SetActive(true); }
+        if (creditsMenu != trueObject)
+        {
+            creditsMenu.SetActive(false);
+        }
+        else
+        {
+            creditsMenu.SetActive(true);
+            titleCanvas.SetActive(true);
+        }
 
         if (inGameMenu != trueObject) { inGameMenu.SetActive(false); }
         else { inGameMenu.SetActive(true); }
@@ -229,6 +245,9 @@ public class SceneManagement : MonoBehaviour
 
         if (winMenu != trueObject) { winMenu.SetActive(false); }
         else { winMenu.SetActive(true); }
+
+        if (hudMenu != trueObject) { hudMenu.SetActive(false); }
+        else { hudMenu.SetActive(true); }
 
     }
 

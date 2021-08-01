@@ -763,6 +763,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1557837724, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3562960613396566656, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
       propertyPath: boss
       value: 
@@ -771,6 +775,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 930387499}
+    - target: {fileID: 3562960613396566656, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
+      propertyPath: hudMenu
+      value: 
+      objectReference: {fileID: 5956461561012305069}
     - target: {fileID: 3562960613396566656, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
       propertyPath: audioBank
       value: 
@@ -833,3 +841,8 @@ PrefabInstance:
       objectReference: {fileID: 890782295}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
+--- !u!1 &5956461561012305069 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1557837724, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
+  m_PrefabInstance: {fileID: 5956461561012305068}
+  m_PrefabAsset: {fileID: 0}
