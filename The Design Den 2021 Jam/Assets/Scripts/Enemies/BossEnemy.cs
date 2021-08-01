@@ -9,7 +9,6 @@ public class BossEnemy : BaseEnemy
     public GameObject EnemyNormal = null;
     public GameObject EnemyFast = null;
     AudioSource enemySpawnSound = null;
-    AudioSource bossDeath = null;
     float counterSpawn = 0.0f;
     public float spawnTimer = 100.0f; //higher = takes more time to spawn 
     public int rate100SpawnNormal = 100; //percentatge
@@ -35,7 +34,6 @@ public class BossEnemy : BaseEnemy
 
         GameObject audioBank = GameObject.FindWithTag("AudioMixer");
         enemySpawnSound = audioBank.transform.Find("enemySpawn").GetComponent<AudioSource>();
-        bossDeath = audioBank.transform.Find("bossDeath").GetComponent<AudioSource>();
 
     }
 
