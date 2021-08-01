@@ -116,7 +116,7 @@ The following files fall under the Creative Commons 0 License (https://creativec
 
 - boss_hurt.wav, from deleted_user_1941307 (https://freesound.org/people/deleted_user_1941307/)
 
-- battle_theme.wav, from Antonin Chachkine (https://www.youtube.com/watch?v=2C6EBFJTfMc)
+- battle_theme.wav, from TETRA Beatz (https://www.youtube.com/watch?v=eZTus_xl8BU)
 
 - enemy_teleport.wav, from BigDino1995 (https://freesound.org/people/BigDino1995/)
 

@@ -16,6 +16,7 @@ public class BossEnemy : BaseEnemy
     public int rate100SpawnFast = 100;
     public int minEnemiesSpawned = 0;
     public int maxEnemiesSpawned = 0;
+    public float distanceOfAction = 10;
 
     [Range(0.0f,100.0f)]
     public float radOfSpawnMin = 15.0f;
@@ -42,7 +43,12 @@ public class BossEnemy : BaseEnemy
 
     protected override void Update()
     {
-        base.Update();
+        
+        if (Mathf.Abs(Vector3.Distance(transform.position, myPlayer.transform.position)) < distanceOfAction)
+        {
+            base.Update();
+        }
+
         if (counterSpawn < spawnTimer)
         {
             counterSpawn += 1 * Time.deltaTime;
@@ -52,8 +58,6 @@ public class BossEnemy : BaseEnemy
             counterSpawn = 0;
             SpawnEnemy();
         }
-
-
     }
     private void SpawnEnemy()
     {

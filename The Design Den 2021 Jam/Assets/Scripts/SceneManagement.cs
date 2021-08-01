@@ -28,9 +28,14 @@ public class SceneManagement : MonoBehaviour
     public GameObject audioBank = null;
     AudioSource bossDeathAudio = null;
     bool lockOpenMenus = true;
+    float timeToWin = 0.0f;
+    bool firstFrameKill = true;
     public bool bossDead = false;
     float bossDeadTimer = 0.0f;
     public float bossDeadCinematicTime = 3.0f;
+    public bool enemyDead = false;
+    float enemyDeadTimer = 0.0f;
+    public float enemyDeaSnapshotTime = 0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -41,11 +46,24 @@ public class SceneManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("TOTAL KILLS: "+StaticGlobalVars.totalKills.ToString());
+
+        if (!lockOpenMenus) { timeToWin += Time.deltaTime; }
+
         if (bossDead)
         {
+            if (firstFrameKill)
+            {
+                firstFrameKill = false;
+                StaticGlobalVars.secondsToKillBoss = timeToWin;
+                Debug.Log("SECONDS TO KILL BOSS: " + StaticGlobalVars.secondsToKillBoss.ToString());
+            }
+
             lockOpenMenus = true;
             theCamera.GetComponent<CameraFollow>().target = boss.transform;
             bossDeadTimer += Time.deltaTime;
+
+            mixer.FindSnapshot("Victory").TransitionTo(0.1f);
 
             if (bossDeathAudio == null) { bossDeathAudio = audioBank.transform.Find("bossDeath").GetComponent<AudioSource>(); }
             else { if (bossDeathAudio.isPlaying == false) { bossDeathAudio.Play(); } }
@@ -53,10 +71,26 @@ public class SceneManagement : MonoBehaviour
             if (bossDeadCinematicTime < bossDeadTimer)
             {
                 bossDead = false;
+                firstFrameKill = true;
                 theCamera.GetComponent<CameraFollow>().target = player.transform;
                 bossDeadTimer = 0.0f;
+                timeToWin = 0.0f;
+                mixer.FindSnapshot("Snapshot").TransitionTo(0.0f);
 
+                StaticGlobalVars.ResetStaticVars();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+        }
+
+        if (bossDead == false && enemyDead)
+        {
+            mixer.FindSnapshot("Death").TransitionTo(0.0f);
+            enemyDeadTimer += Time.deltaTime;
+            if (enemyDeadTimer > enemyDeaSnapshotTime)
+            {
+                enemyDeadTimer = 0.0f;
+                mixer.FindSnapshot("Snapshot").TransitionTo(0.0f);
+                enemyDead = false;
             }
         }
 

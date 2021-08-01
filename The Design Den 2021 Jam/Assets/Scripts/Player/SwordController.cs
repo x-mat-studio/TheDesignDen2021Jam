@@ -43,6 +43,9 @@ public class SwordController : MonoBehaviour
     [Range(0.01f, 0.99f)]
     public float rpmLerpSpeed = 0.5f;//between 0.01 and 1
 
+    [HideInInspector]
+    public float maxRPMReached = 0.0f;
+
     private void Start()
     {
         if (audioBank != null)
@@ -75,6 +78,12 @@ public class SwordController : MonoBehaviour
         }
 
         sword.transform.eulerAngles = new Vector3(sword.transform.eulerAngles.x, sword.transform.eulerAngles.y, sword.transform.eulerAngles.z - RPMtoDegreesPerFrame());
+
+        if (rpm > maxRPMReached)
+        {
+            maxRPMReached = rpm;
+        }
+
     }
 
     private void CalculateCurrentQuadrant()
@@ -183,7 +192,7 @@ public class SwordController : MonoBehaviour
 
             if (deadTimer <= 0.0f)
             {
-                if (audioDeath != null && audioDeath.isPlaying == false) {audioDeath.Play(); }
+                if (audioDeath != null && audioDeath.isPlaying == false) { audioDeath.Play(); }
                 Debug.Log("You dead");
             }
         }
@@ -206,7 +215,8 @@ public class SwordController : MonoBehaviour
         }
 
         sfxTimer++;
-        if (sfxTimer > (Random.Range(1.0f, 3.0f) - (rpmLerpSpeed * 1.5))) {
+        if (sfxTimer > (Random.Range(1.0f, 3.0f) - (rpmLerpSpeed * 1.5)))
+        {
             sfxTimer = 0.0f;
             if (Random.Range(1.0f, 2.0f) > 1.5f) { audioBuzz1.Play(); }
             else { audioBuzz2.Play(); }

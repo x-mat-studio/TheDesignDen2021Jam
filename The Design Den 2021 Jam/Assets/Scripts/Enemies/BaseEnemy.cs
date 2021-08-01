@@ -55,6 +55,16 @@ public class BaseEnemy : MonoBehaviour
         Rotate();
         lastFramePos = new Vector2(transform.position.x, transform.position.y);
         Move();
+
+        if (Mathf.Abs(Vector3.Distance(transform.position, myPlayer.transform.position)) > 100)
+        {
+            Suicide();
+        }
+    }
+
+    private void Suicide() 
+    {
+        Destroy(gameObject); //pops out of existence offscreen
     }
 
     void SetColorFromSprites()
@@ -101,8 +111,17 @@ public class BaseEnemy : MonoBehaviour
         BloodSplat.bloodSplatHolder.GetComponent<BloodSplat>().CreateSplat(gameObject.transform.position, angle,
                                             new Vector3(myColor.r, myColor.g, myColor.b));
         //Sound
+
+        //Enemy dies means spin goes brbrbr
+        
+        myPlayer.GetComponent<SwordController>().ChangeRotationSudden(Mathf.FloorToInt(mySpeed / 2));
+
+        //kill this mofo
         Debug.Log("I got killed");
-        Destroy(gameObject); //keep this as last line of the code   
+        StaticGlobalVars.totalKills++;
+        Destroy(gameObject); //keep this as last line of the code
+        
+
     }
 
 
@@ -136,10 +155,19 @@ public class BaseEnemy : MonoBehaviour
         myLife -= 1;
         if (myLife == 0)
         {
-            if (gameObject.tag != "Boss") { Die(); }
+            GameObject manager = GameObject.Find("SceneManager");
+
+            if (gameObject.tag != "Boss")
+            {
+
+                if (manager != null) { manager.GetComponent<SceneManagement>().enemyDead = true; }
+                else { Debug.Log("There is no Scene Manager in your scene. Manage it."); }
+                Die();
+
+            }
+
             else
             {
-                GameObject manager = GameObject.Find("SceneManager");
                 if (manager != null) { manager.GetComponent<SceneManagement>().bossDead = true; }
                 else { Debug.Log("There is no Scene Manager in your scene. Manage it."); }
             }
