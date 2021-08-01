@@ -125,3 +125,7 @@ The following files fall under the Creative Commons 0 License (https://creativec
 - boss_ouchy.wav, from bdemon27 (https://freesound.org/people/bdemon27/)
 
 
+The following files fall under the retired license of Sampling+ License (https://creativecommons.org/licenses/sampling+/1.0/legalcode):
+
+- heart_beat.mp3, from Dr. Gasp (https://freesound.org/people/Dr.Gasp/)
+
