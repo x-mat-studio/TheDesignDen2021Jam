@@ -74,6 +74,22 @@ public class BaseEnemy : MonoBehaviour
     void Die()
     {
         //Bloodsplat
+
+        Vector3 direction = gameObject.transform.position - myPlayer.transform.position;
+        direction.z = 0.0f;
+
+        direction.Normalize();
+
+        float angle = Vector3.Angle(direction, new Vector3(1.0f, 0.0f, 0.0f));
+
+        float upperAngle = Vector3.Angle(direction, new Vector3(0.0f, 1.0f, 0.0f));
+        float downAngle = Vector3.Angle(direction, new Vector3(0.0f, -1.0f, 0.0f));
+
+        if (downAngle < upperAngle)
+            angle = -angle;
+
+        BloodSplat.bloodSplatHolder.GetComponent<BloodSplat>().CreateSplat(gameObject.transform.position, angle, 
+                                            new Vector3(myOutlineColor.r, myOutlineColor.g, myOutlineColor.b));
         //Sound
         Debug.Log("I got killed");
         Destroy(gameObject); //keep this as last line of the code   
