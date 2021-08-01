@@ -14,6 +14,16 @@ public class SceneManager : MonoBehaviour
     public GameObject inGameCreditsMenu = null;
     public GameObject canvas = null;
     public AudioMixer mixer = null;
+    public GameObject globalMenu = null;
+    public GameObject globalGame = null;
+    public GameObject musicMenu = null;
+    public GameObject musicGame = null;
+    public GameObject sfxMenu = null;
+    public GameObject sfxGame = null;
+    public GameObject camera = null;
+    public GameObject boss = null;
+    bool lockOpenMenus = true;
+    public bool bossDead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +34,13 @@ public class SceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape) && mainMenu.activeInHierarchy == false && audioMenu.activeInHierarchy == false && creditsMenu.activeInHierarchy == false)
+        if (bossDead)
+        {
+            lockOpenMenus = true;
+            camera.GetComponent<CameraFollow>().target = boss.transform;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Escape) && lockOpenMenus == false)
         {
             inGameMenu.SetActive(true);
         }
@@ -36,6 +52,7 @@ public class SceneManager : MonoBehaviour
         {
             case "Play":
                 SetMenusFalse(null);
+                lockOpenMenus = false;
                 break;
 
             case "Audio Settings":
@@ -48,6 +65,10 @@ public class SceneManager : MonoBehaviour
 
             case "InGameCredits":
                 SetMenusFalse(inGameCreditsMenu);
+                break;
+
+            case "InGameAudioSettings":
+                SetMenusFalse(inGameAudioMenu);
                 break;
 
             case "Return":
@@ -64,31 +85,31 @@ public class SceneManager : MonoBehaviour
                 break;
 
             case "Aaron":
-                Application.OpenURL("https://github.com/AaronGCProg");
+                Application.OpenURL("https://www.linkedin.com/in/aaron-guerrero-cruz-5a2333164/");
                 break;
 
             case "Julia":
-                Application.OpenURL("https://github.com/JuliaBlasco");
+                Application.OpenURL("https://www.linkedin.com/in/julia-blasco-allepuz/");
                 break;
 
             case "Oscar":
-                Application.OpenURL("https://github.com/oscarpm5");
+                Application.OpenURL("https://www.linkedin.com/in/oscar-perez-martin/");
                 break;
 
             case "Alex":
-                Application.OpenURL("https://github.com/AlexMelenchon");
+                Application.OpenURL("https://www.linkedin.com/in/alex-melench%C3%B3n-maza-a46981195/");
                 break;
 
             case "Adri":
-                Application.OpenURL("https://github.com/adriaserrano97");
+                Application.OpenURL("https://www.linkedin.com/in/adri%C3%A0-serrano-l%C3%B3pez-7196a91a3/");
                 break;
 
             case "Jose":
-                Application.OpenURL("https://github.com/jose-tello");
+                Application.OpenURL("https://www.linkedin.com/in/joseluisredondotello/");
                 break;
 
             case "Ferran":
-                Application.OpenURL("https://github.com/HoduRe");
+                Application.OpenURL("https://www.linkedin.com/in/ferran-roger-basart-i-bosch-606b5a195/");
                 break;
         }
 
@@ -100,7 +121,10 @@ public class SceneManager : MonoBehaviour
     {
 
         if (mainMenu != trueObject) { mainMenu.SetActive(false); }
-        else { mainMenu.SetActive(true); }
+        else {
+            mainMenu.SetActive(true);
+            lockOpenMenus = true;
+        }
 
         if (audioMenu != trueObject) { audioMenu.SetActive(false); }
         else { audioMenu.SetActive(true); }
@@ -125,17 +149,22 @@ public class SceneManager : MonoBehaviour
         {
             case "Master":
                 mixer.SetFloat("masterVolume", Mathf.Log10(gObject.GetComponent<Slider>().value) * 20);
+                globalMenu.GetComponent<Slider>().value = gObject.GetComponent<Slider>().value;
+                globalGame.GetComponent<Slider>().value = gObject.GetComponent<Slider>().value;
                 break;
 
             case "Music":
                 mixer.SetFloat("musicVolume", Mathf.Log10(gObject.GetComponent<Slider>().value) * 20);
+                musicMenu.GetComponent<Slider>().value = gObject.GetComponent<Slider>().value;
+                musicGame.GetComponent<Slider>().value = gObject.GetComponent<Slider>().value;
                 break;
 
             case "SFX":
                 mixer.SetFloat("sfxVolume", Mathf.Log10(gObject.GetComponent<Slider>().value) * 20);
+                sfxMenu.GetComponent<Slider>().value = gObject.GetComponent<Slider>().value;
+                sfxGame.GetComponent<Slider>().value = gObject.GetComponent<Slider>().value;
                 break;
         }
-
     }
 
 }

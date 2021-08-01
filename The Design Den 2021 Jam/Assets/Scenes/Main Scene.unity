@@ -257,6 +257,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3116463195778989026, guid: 65a036ab7b1bb744fa6fa43de7d8c2f1, type: 3}
   m_PrefabInstance: {fileID: 1923749595}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1287165994 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6083719707123500886, guid: 87e1443c8b5e91f4a89dd42f1b31ce0d, type: 3}
+  m_PrefabInstance: {fileID: 431860319}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1655012922
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,11 +541,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65a036ab7b1bb744fa6fa43de7d8c2f1, type: 3}
---- !u!1 &4109768593469183178 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7755566867961456742, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
-  m_PrefabInstance: {fileID: 5956461561012305068}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5956461561012305068
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -548,22 +548,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2330818802504678267, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
-      propertyPath: m_Name
-      value: ReturnToMainMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 2330818803826539093, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
-      propertyPath: m_Name
-      value: InGameCredits
-      objectReference: {fileID: 0}
     - target: {fileID: 3562960613396566656, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
-      propertyPath: inGameAudioMenu
+      propertyPath: boss
       value: 
-      objectReference: {fileID: 4109768593469183178}
+      objectReference: {fileID: 1287165994}
     - target: {fileID: 3562960613396566656, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
-      propertyPath: inGameCreditsMenu
+      propertyPath: camera
       value: 
-      objectReference: {fileID: 5956461561012305069}
+      objectReference: {fileID: 1655012922}
+    - target: {fileID: 3562960613396566656, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
+      propertyPath: bossDead
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3562960613396566661, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -612,14 +608,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneManager
       objectReference: {fileID: 0}
-    - target: {fileID: 7693131566854708677, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
-      propertyPath: m_Name
-      value: ReturnToInGameMenu
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
---- !u!1 &5956461561012305069 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8544330254985630019, guid: f8b90d8d7f892e04397c2028fb65ae9b, type: 3}
-  m_PrefabInstance: {fileID: 5956461561012305068}
-  m_PrefabAsset: {fileID: 0}
