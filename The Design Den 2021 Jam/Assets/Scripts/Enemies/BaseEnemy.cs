@@ -118,6 +118,7 @@ public class BaseEnemy : MonoBehaviour
 
         //kill this mofo
         Debug.Log("I got killed");
+        StaticGlobalVars.totalKills++;
         Destroy(gameObject); //keep this as last line of the code
         
 
