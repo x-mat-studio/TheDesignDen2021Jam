@@ -28,6 +28,8 @@ public class SceneManagement : MonoBehaviour
     public GameObject audioBank = null;
     AudioSource bossDeathAudio = null;
     bool lockOpenMenus = true;
+    float timeToWin = 0.0f;
+    bool firstFrameKill = true;
     public bool bossDead = false;
     float bossDeadTimer = 0.0f;
     public float bossDeadCinematicTime = 3.0f;
@@ -44,8 +46,16 @@ public class SceneManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (lockOpenMenus) { timeToWin += Time.deltaTime; }
+
         if (bossDead)
         {
+            if (firstFrameKill)
+            {
+                firstFrameKill = false;
+                StaticGlobalVars.secondsToKillBoss = timeToWin;
+            }
+
             lockOpenMenus = true;
             theCamera.GetComponent<CameraFollow>().target = boss.transform;
             bossDeadTimer += Time.deltaTime;
@@ -58,18 +68,21 @@ public class SceneManagement : MonoBehaviour
             if (bossDeadCinematicTime < bossDeadTimer)
             {
                 bossDead = false;
+                firstFrameKill = true;
                 theCamera.GetComponent<CameraFollow>().target = player.transform;
                 bossDeadTimer = 0.0f;
+                timeToWin = 0.0f;
                 mixer.FindSnapshot("Snapshot").TransitionTo(0.0f);
 
+                StaticGlobalVars.ResetStaticVars();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
 
         if (bossDead == false && enemyDead)
         {
-            mixer.FindSnapshot("Victory").TransitionTo(0.0f);
-            enemyDeadTimer++;
+            mixer.FindSnapshot("Death").TransitionTo(0.0f);
+            enemyDeadTimer += Time.deltaTime;
             if (enemyDeadTimer > enemyDeaSnapshotTime)
             {
                 enemyDeadTimer = 0.0f;
