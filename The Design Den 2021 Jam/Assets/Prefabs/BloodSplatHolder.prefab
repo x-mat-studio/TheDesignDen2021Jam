@@ -46,4 +46,9 @@ MonoBehaviour:
   bloodSplatPrefab: {fileID: 539477095254642224, guid: 7147469589dc7f44683c08342b388837, type: 3}
   audioBank: {fileID: 0}
   sprites:
+  - {fileID: 21300000, guid: 9912be8d7d251ee4fa0bc8a2f8e211f1, type: 3}
+  - {fileID: 21300000, guid: 61e2e9bb73b318e4f97f7c3d91e23e5b, type: 3}
+  - {fileID: 21300000, guid: f69b649d68a85e741940ae6eee232868, type: 3}
   - {fileID: 21300000, guid: 9166bda05a73f124a880f226e5846458, type: 3}
+  - {fileID: 21300000, guid: be87dfddbdc655343b30e3804b962846, type: 3}
+  - {fileID: 21300000, guid: e6ad188e5cba45d4e88e4665674666e0, type: 3}
