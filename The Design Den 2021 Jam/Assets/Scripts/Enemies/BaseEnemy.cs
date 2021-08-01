@@ -53,6 +53,16 @@ public class BaseEnemy : MonoBehaviour
         Rotate();
         lastFramePos = new Vector2(transform.position.x, transform.position.y);
         Move();
+
+        if (Mathf.Abs(Vector3.Distance(transform.position, myPlayer.transform.position)) > 100)
+        {
+            Suicide();
+        }
+    }
+
+    private void Suicide() 
+    {
+        Destroy(gameObject); //pops out of existence offscreen
     }
 
     void SetSpriteColor(Color inside, Color outline)
@@ -91,8 +101,16 @@ public class BaseEnemy : MonoBehaviour
         BloodSplat.bloodSplatHolder.GetComponent<BloodSplat>().CreateSplat(gameObject.transform.position, angle, 
                                             new Vector3(myColor.r, myColor.g, myColor.b));
         //Sound
+
+        //Enemy dies means spin goes brbrbr
+        
+        myPlayer.GetComponent<SwordController>().ChangeRotationSudden(Mathf.FloorToInt(mySpeed / 4));
+
+        //kill this mofo
         Debug.Log("I got killed");
-        Destroy(gameObject); //keep this as last line of the code   
+        Destroy(gameObject); //keep this as last line of the code
+        
+
     }
 
 

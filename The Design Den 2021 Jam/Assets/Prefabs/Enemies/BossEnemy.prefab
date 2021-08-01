@@ -4981,6 +4981,7 @@ MonoBehaviour:
   rate100SpawnFast: 50
   minEnemiesSpawned: 3
   maxEnemiesSpawned: 10
+  distanceOfAction: 28
   radOfSpawnMin: 7
   radOfSpawnMax: 15
 --- !u!61 &8078976135550178698
