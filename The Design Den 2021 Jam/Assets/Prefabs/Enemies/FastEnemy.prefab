@@ -9863,7 +9863,7 @@ MonoBehaviour:
   mySprite: {fileID: 107088909461278074}
   myOutlineSprite: {fileID: 2429443042945844082}
   myPlayer: {fileID: 0}
-  myParticleDeath: {fileID: 2397210571962564451, guid: 3221f7882e5a322449df5ca7e94c3c91, type: 3}
+  deathParticle: {fileID: 2397210571962564451, guid: 3221f7882e5a322449df5ca7e94c3c91, type: 3}
   rotSpeedMultiplier: 20
   killTextObj: {fileID: 7168997904463316752, guid: 462fe4b3ebe0dc14cac8a938c7b82bf0, type: 3}
 --- !u!61 &4539049285936086809

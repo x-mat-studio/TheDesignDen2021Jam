@@ -15,7 +15,7 @@ public class BaseEnemy : MonoBehaviour
     public PlayerController myPlayer = null;
     AudioSource entityHit = null;
     bool thereIsPlayer = true;
-    public ParticleSystem deathParticle = null;
+    public GameObject deathParticle = null;
 
     [Range(0.0f, 100.0f)]
     public float rotSpeedMultiplier = 1.0f;
@@ -119,7 +119,7 @@ public class BaseEnemy : MonoBehaviour
 
         if (deathParticle != null)
         {
-            deathParticle.Play();
+            Instantiate(deathParticle);
         }
 
         //Enemy dies means spin goes brbrbr
