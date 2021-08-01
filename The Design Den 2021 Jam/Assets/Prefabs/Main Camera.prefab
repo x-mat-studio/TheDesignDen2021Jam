@@ -160,12 +160,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   deadZoneDistance: 1
-  smoothSpeed: 0.125
+  smoothSpeed: 0.25
   followActive: 1
   scaleActive: 1
-  speedToMaxScale: 2
-  minCamScale: 13
-  maxCamScale: 15
+  speedToMaxScale: 5
+  minCamScale: 8
+  maxCamScale: 13
 --- !u!1001 &7909731310171329077
 PrefabInstance:
   m_ObjectHideFlags: 0

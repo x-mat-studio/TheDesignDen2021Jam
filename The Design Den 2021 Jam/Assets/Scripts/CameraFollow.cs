@@ -100,7 +100,7 @@ public class CameraFollow : MonoBehaviour
         Vector2 newPos = new Vector2(transform.position.x, transform.position.y);
 
         float newScale01 = Mathf.Clamp01(((newPos-lastCamPos).magnitude/Time.deltaTime) / speedToMaxScale);
-        currentCam.orthographicSize = Mathf.Lerp(minCamScale, maxCamScale, newScale01*newScale01);
+        currentCam.orthographicSize = Mathf.Lerp(minCamScale, maxCamScale, newScale01*newScale01*newScale01);
     }
 
 

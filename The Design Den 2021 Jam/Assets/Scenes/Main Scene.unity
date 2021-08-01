@@ -248,6 +248,22 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1133041248}
+    - target: {fileID: 4617366002033788582, guid: 06210833ab08f8542a122ce26ac7415a, type: 3}
+      propertyPath: maxCamScale
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617366002033788582, guid: 06210833ab08f8542a122ce26ac7415a, type: 3}
+      propertyPath: minCamScale
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617366002033788582, guid: 06210833ab08f8542a122ce26ac7415a, type: 3}
+      propertyPath: smoothSpeed
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617366002033788582, guid: 06210833ab08f8542a122ce26ac7415a, type: 3}
+      propertyPath: speedToMaxScale
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4617366002033788583, guid: 06210833ab08f8542a122ce26ac7415a, type: 3}
       propertyPath: m_Name
       value: Main Camera
