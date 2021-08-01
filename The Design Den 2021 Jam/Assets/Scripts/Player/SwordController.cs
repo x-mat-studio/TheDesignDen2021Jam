@@ -183,4 +183,10 @@ public class SwordController : MonoBehaviour
             }
         }
     }
+
+    void ChangeRotationSudden(int addedLoops)
+    {
+        loops += addedLoops;
+        RecalculateRPM();
+    }
 }
