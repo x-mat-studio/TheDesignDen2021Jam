@@ -22,7 +22,7 @@ public class CameraFollow : MonoBehaviour
 
     PlayerController myPlayer = null;
 
-
+    Vector2 lastCamPos = Vector2.zero;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +47,7 @@ public class CameraFollow : MonoBehaviour
             Debug.LogError("CAMERA FOLLOW SCRIPT NOT ASSIGNED TO A CAMERA");
         }
 
-
+        lastCamPos = new Vector2(transform.position.x, transform.position.y);
     }
 
     // Update is called once per frame
@@ -55,6 +55,7 @@ public class CameraFollow : MonoBehaviour
     {
         TryMove();
         TryScale();
+        lastCamPos = new Vector2(transform.position.x, transform.position.y);
     }
 
     public void NewTarget(Transform t)
@@ -96,8 +97,10 @@ public class CameraFollow : MonoBehaviour
         if (scaleActive == false)
             return;
 
-        float newScale01 = Mathf.Clamp01(myPlayer.baseSpeed / speedToMaxScale);
-        currentCam.orthographicSize = Mathf.Lerp(minCamScale, maxCamScale, newScale01);
+        Vector2 newPos = new Vector2(transform.position.x, transform.position.y);
+
+        float newScale01 = Mathf.Clamp01(((newPos-lastCamPos).magnitude/Time.deltaTime) / speedToMaxScale);
+        currentCam.orthographicSize = Mathf.Lerp(minCamScale, maxCamScale, newScale01*newScale01);
     }
 
 
