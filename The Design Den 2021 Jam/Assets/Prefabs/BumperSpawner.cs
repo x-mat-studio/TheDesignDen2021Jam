@@ -6,8 +6,8 @@ using System.Linq;
 
 public class BumperSpawner : MonoBehaviour
 {
-    [Range(0.0f, 100.0f)]
-    public float positiveToNegativeBumperRatio = 50.0f;
+    [Range(0, 100)]
+    public int positiveToNegativeBumperRatio = 50;
     public int numOfBumpersToSpawnAtOnce = 2;
     public float secondsBetweenWaves = 60.0f;
     public float spawnRadiusFromPlayer = 10.0f;
@@ -29,7 +29,7 @@ public class BumperSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(secondsSinceLastWave>=secondsBetweenWaves)
+        if (secondsSinceLastWave >= secondsBetweenWaves)
         {
             secondsSinceLastWave = 0.0f;
             DeleteBumpers();
@@ -42,10 +42,20 @@ public class BumperSpawner : MonoBehaviour
         GameObject inst;
         for (int i = 0; i < numOfBumpersToSpawnAtOnce; ++i)
         {
-            inst = Instantiate(bumperPlus); //TODO change this for a percentage
+            inst = InstantiateWithPercentage();
             Vector2 newPosOffset = Random.insideUnitCircle.normalized * spawnRadiusFromPlayer;
-            inst.transform.position = transform.position + new Vector3(newPosOffset.x,newPosOffset.y,0.0f);
+            inst.transform.position = transform.position + new Vector3(newPosOffset.x, newPosOffset.y, 0.0f);
         }
+    }
+
+
+    GameObject InstantiateWithPercentage()
+    {
+        int number = Mathf.FloorToInt(Random.Range(0.0f, 100.0f));
+        if (number <= positiveToNegativeBumperRatio)
+            return Instantiate(bumperPlus);
+        else
+            return Instantiate(bumperMinus);
     }
     void DeleteBumpers()
     {
