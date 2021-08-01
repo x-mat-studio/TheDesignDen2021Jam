@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class SceneManager : MonoBehaviour
+public class SceneManagement : MonoBehaviour
 {
     public GameObject mainMenu = null;
     public GameObject mainMenuTitle = null;
@@ -54,7 +55,8 @@ public class SceneManager : MonoBehaviour
                 bossDead = false;
                 theCamera.GetComponent<CameraFollow>().target = player.transform;
                 bossDeadTimer = 0.0f;
-                SetMenusFalse(mainMenu);
+
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
 
