@@ -7,6 +7,7 @@ public class SwordController : MonoBehaviour
 {
     public GameObject sword = null;
     public GameObject audioBank = null;
+    public CameraFollow cam = null;
     private AudioSource audioBuzz1 = null;
     private AudioSource audioBuzz2 = null;
     private AudioSource audioCircle = null;
@@ -205,7 +206,8 @@ public class SwordController : MonoBehaviour
                 {
                     
                     blurTimer = timeBeforeBlurr;
-
+                    if (cam != null)
+                        cam.StartCameraShake();
                     //SCREEN SHACKE HERE
                 }
             }

@@ -23,6 +23,9 @@ public class CameraFollow : MonoBehaviour
     PlayerController myPlayer = null;
 
     Vector2 lastCamPos = Vector2.zero;
+
+    public float cameraShakeDuration = 0.5f;
+    public float cameraShakeTimer = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +59,11 @@ public class CameraFollow : MonoBehaviour
         TryMove();
         TryScale();
         lastCamPos = new Vector2(transform.position.x, transform.position.y);
+
+        if (cameraShakeTimer > 0.0f)
+        {
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x + Random.Range(-2, 2), gameObject.transform.position.y + Random.Range(-2, 2), 0.0f);
+        }
     }
 
     public void NewTarget(Transform t)
@@ -107,5 +115,11 @@ public class CameraFollow : MonoBehaviour
     bool IsInDeadZone()
     {
         return (new Vector2(transform.position.x - target.position.x, transform.position.y - target.position.y).magnitude < deadZoneDistance);//TODO use sqrMagnitude if we need to optimize
+    }
+
+
+    public void StartCameraShake()
+    {
+        cameraShakeTimer = cameraShakeDuration;
     }
 }
