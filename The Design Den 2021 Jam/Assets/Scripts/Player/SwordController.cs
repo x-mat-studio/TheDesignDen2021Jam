@@ -8,8 +8,6 @@ public class SwordController : MonoBehaviour
     public GameObject sword = null;
     public GameObject audioBank = null;
     public CameraFollow cam = null;
-    private AudioSource audioBuzz1 = null;
-    private AudioSource audioBuzz2 = null;
     private AudioSource audioDeath = null;
 
     private int loops = 0;  //Negative means counter clock wise movement
@@ -39,8 +37,6 @@ public class SwordController : MonoBehaviour
     public float timeBeforeBlurr = 2.0f;
     public float blurTimer = 0.0f;
 
-    private float sfxTimer = 0.0f;
-
     //RPM
     float maxRPM = 0.0f; //maxRPM
     public float rpm = 0.0f;
@@ -54,8 +50,6 @@ public class SwordController : MonoBehaviour
     {
         if (audioBank != null)
         {
-            audioBuzz1 = audioBank.transform.Find("weaponBuzz1").gameObject.GetComponent<AudioSource>();
-            audioBuzz2 = audioBank.transform.Find("weaponBuzz2").gameObject.GetComponent<AudioSource>();
             audioDeath = audioBank.transform.Find("playerDeath").gameObject.GetComponent<AudioSource>();
         }
         else { Debug.Log("There is no Audio Bank :0"); }
@@ -239,17 +233,6 @@ public class SwordController : MonoBehaviour
             }
         }
 
-        sfxTimer++;
-        if (sfxTimer > (Random.Range(1.0f, 3.0f) - (rpmLerpSpeed * 1.5)))
-        {
-            if (audioBuzz2 != null)
-            {
-                sfxTimer = 0.0f;
-                if (Random.Range(1.0f, 2.0f) > 1.5f) { audioBuzz1.Play(); }
-                else { audioBuzz2.Play(); }
-
-            }
-        }
     }
 
     public void ChangeRotationSudden(int addedLoops)
