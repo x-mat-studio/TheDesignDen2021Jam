@@ -4,15 +4,15 @@ Hello there!
 
 Thanks for playing our game! 
 
-Neon Looper is a 'feeler' type of game in which you are trying to spin as fast as possible. Spinning faster will make you move faster (but also make you harder to control).
+Neon Looper is a 'feeling' type of game in which you are trying to spin as fast as possible. Spinning faster will make you move faster (but also make you harder to control).
 
-"Loop" your mouse around your character to increase it's RPM, kill enemies to get faster and try to hit the boss 3 times to win!
+"Loop" your mouse around your character to increase it's RPM, kill enemies to go faster and try to hit the boss 3 times to win!
 
 And most important of all: have fun while doing so! Revel in the spectale of light, sound and speed.
 
 Happy looping!
 
--X-Gam Studio (Aarón,Álex,Julia,Oscar,Ferran,Adrià,Jose)
+-X-Gam Studio (Aarón, Àlex, Julia, Oscar, Ferran-Roger, Adrià, Jose)
 
 
 
@@ -29,6 +29,6 @@ OBJECTIVE
 - Get the highest score
 - Enjoy!
 
-LOOSE CONDITION
+LOSE CONDITION
 
-Remain still or don't spin for long
+Remaining still or not spinning for long
